@@ -51,17 +51,17 @@ export default function Members() {
     <section id="members" className="py-20 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
       {/* Floating particles effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {typeof window !== 'undefined' && [...Array(20)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-apollo-blue rounded-full opacity-20"
             initial={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+              x: Math.random() * 1200,
+              y: Math.random() * 800,
             }}
             animate={{
-              y: [null, Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000)],
-              x: [null, Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)],
+              y: [null, Math.random() * 800],
+              x: [null, Math.random() * 1200],
             }}
             transition={{
               duration: Math.random() * 10 + 10,
