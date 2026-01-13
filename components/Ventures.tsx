@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import VentureModal from './VentureModal'
 
 const ventures = [
@@ -83,6 +84,28 @@ const ventures = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: -15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+      transition: {
+        duration: 0.6,
+      },
+  },
+}
+
 export default function Ventures() {
   const [selectedVenture, setSelectedVenture] = useState<number | null>(null)
 
@@ -125,30 +148,57 @@ export default function Ventures() {
   }
 
   return (
-    <section id="ventures" className="py-20 px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="font-title text-4xl font-bold text-center text-gray-900 mb-12">
+    <section id="ventures" className="py-20 px-8 bg-gradient-to-b from-white via-purple-50 to-white relative overflow-hidden">
+      {/* Animated wave pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#3B82F6" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-title text-4xl font-bold text-center text-gray-900 mb-12"
+        >
           Apollo's Ventures + Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </motion.h2>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {ventures.map((venture) => (
-            <div
+            <motion.div
               key={venture.id}
+              variants={cardVariants}
+              whileHover={{ y: -15, rotateY: 5, scale: 1.02 }}
               onClick={() => handleCardClick(venture.id)}
-              className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden cursor-pointer transform hover:border-apollo-blue hover:shadow-md transition-all duration-300"
+              className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden cursor-pointer group relative"
             >
-              <div className="w-full h-48 bg-gray-200 mb-4 rounded-t-xl overflow-hidden flex items-center justify-center">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 to-purple-500/0 group-hover:from-apollo-blue/10 group-hover:to-purple-500/10 transition-all duration-300 z-0"></div>
+              
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-full h-48 bg-gray-200 mb-4 rounded-t-xl overflow-hidden relative z-10"
+              >
                 <img 
                   src={venture.image} 
                   alt={venture.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback to placeholder if image fails to load
                     e.currentTarget.src = `https://via.placeholder.com/300x200/000000/FFFFFF?text=${encodeURIComponent(venture.name)}`
                   }}
                 />
-              </div>
-              <div className="p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.div>
+              <div className="p-6 relative z-10">
                 <h3 className="font-subtitle text-xl font-bold text-gray-900 mb-2">
                   {venture.name}
                 </h3>
@@ -161,10 +211,17 @@ export default function Ventures() {
                 <p className="font-caption text-base text-gray-600 line-clamp-3">
                   {venture.description}
                 </p>
+                <motion.p
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-sm text-apollo-blue mt-4 font-semibold"
+                >
+                  Click to explore →
+                </motion.p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         {selectedVenture && (
           <VentureModal

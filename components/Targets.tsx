@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import TargetModal from './TargetModal'
 
 const departments = [
@@ -104,6 +105,28 @@ const departments = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+  },
+}
+
 export default function Targets() {
   const [selectedDepartment, setSelectedDepartment] = useState<number | null>(null)
 
@@ -116,42 +139,79 @@ export default function Targets() {
   }
 
   return (
-    <section id="targets" className="py-20 px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="font-title text-4xl font-bold text-center text-gray-900 mb-12">
+    <section id="targets" className="py-20 px-8 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+      {/* Animated diagonal lines */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(59, 130, 246, 0.1) 10px, rgba(59, 130, 246, 0.1) 20px)',
+        }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-title text-4xl font-bold text-center text-gray-900 mb-12"
+        >
           Our Team Targets
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        </motion.h2>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {departments.map((dept, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={cardVariants}
+              whileHover={{ y: -10, scale: 1.02 }}
               onClick={() => handleCardClick(index)}
-              className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden transform hover:border-apollo-blue hover:shadow-lg transition-all duration-300 cursor-pointer"
+              className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group"
             >
-              <div className={`bg-gradient-to-br ${dept.color} p-6`}>
-                <h3 className="font-subtitle text-2xl font-bold text-white">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className={`bg-gradient-to-br ${dept.color} p-6 relative overflow-hidden`}
+              >
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <h3 className="font-subtitle text-2xl font-bold text-white relative z-10">
                   {dept.name}
                 </h3>
-              </div>
+              </motion.div>
               <div className="p-6 space-y-4">
                 {dept.targets.map((target, targetIndex) => (
-                  <div
+                  <motion.div
                     key={targetIndex}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: targetIndex * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${dept.color} mt-2 flex-shrink-0`}></div>
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: targetIndex * 0.3 }}
+                      className={`w-2 h-2 rounded-full bg-gradient-to-br ${dept.color} mt-2 flex-shrink-0`}
+                    ></motion.div>
                     <p className="font-caption text-base text-gray-700 leading-relaxed">
                       {target}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
-                <p className="text-sm text-gray-500 mt-4 italic">
+                <motion.p
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-sm text-gray-500 mt-4 italic"
+                >
                   Click to learn more →
-                </p>
+                </motion.p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         {selectedDepartment !== null && (
           <TargetModal
