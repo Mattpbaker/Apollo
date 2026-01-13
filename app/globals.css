@@ -17,6 +17,16 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #FAFAFA;
-  color: #000000;
+  background-color: #FFFFFF;
+  color: #1F2937;
+}
+
+/* Presentation-style smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Clean section spacing */
+section {
+  scroll-margin-top: 80px;
 }

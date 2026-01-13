@@ -29,9 +29,9 @@ export default function CTA() {
   }
 
   return (
-    <section id="cta" className="py-20 px-8 bg-gradient-to-b from-apollo-blue to-blue-600">
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-12 transform hover:scale-105 transition-all duration-300">
-        <h2 className="font-title text-3xl font-bold text-center text-apollo-black mb-6">
+    <section id="cta" className="py-20 px-8 bg-white">
+      <div className="max-w-2xl mx-auto bg-white border-2 border-gray-200 rounded-lg shadow-sm p-12 hover:border-apollo-blue hover:shadow-md transition-all duration-300">
+        <h2 className="font-title text-3xl font-bold text-center text-gray-900 mb-6">
           Get In Touch
         </h2>
         <p className="font-caption text-xl text-center text-gray-700 mb-8">
@@ -51,7 +51,7 @@ export default function CTA() {
             <button
               type="submit"
               disabled={submitted}
-              className="px-8 py-4 bg-apollo-yellow text-apollo-black font-subtitle font-bold rounded-lg hover:bg-yellow-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg"
+              className="px-8 py-4 bg-apollo-blue text-white font-subtitle font-bold rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {submitted ? 'Sending...' : 'Send Message'}
             </button>

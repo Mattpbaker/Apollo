@@ -116,17 +116,17 @@ export default function Targets() {
   }
 
   return (
-    <section id="targets" className="py-20 px-8 bg-gray-50">
+    <section id="targets" className="py-20 px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-title text-4xl font-bold text-center text-apollo-black mb-12">
-          Our Targets
+        <h2 className="font-title text-4xl font-bold text-center text-gray-900 mb-12">
+          Our Team Targets
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {departments.map((dept, index) => (
             <div
               key={index}
               onClick={() => handleCardClick(index)}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden transform hover:border-apollo-blue hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               <div className={`bg-gradient-to-br ${dept.color} p-6`}>
                 <h3 className="font-subtitle text-2xl font-bold text-white">

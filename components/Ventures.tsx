@@ -127,15 +127,15 @@ export default function Ventures() {
   return (
     <section id="ventures" className="py-20 px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-title text-4xl font-bold text-center text-apollo-black mb-12">
-          Projects & Ventures
+        <h2 className="font-title text-4xl font-bold text-center text-gray-900 mb-12">
+          Apollo's Ventures + Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ventures.map((venture) => (
             <div
               key={venture.id}
               onClick={() => handleCardClick(venture.id)}
-              className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transform hover:scale-105 hover:shadow-xl transition-all duration-300"
+              className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden cursor-pointer transform hover:border-apollo-blue hover:shadow-md transition-all duration-300"
             >
               <div className="w-full h-48 bg-gray-200 mb-4 rounded-t-xl overflow-hidden flex items-center justify-center">
                 <img 
@@ -149,7 +149,7 @@ export default function Ventures() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-subtitle text-xl font-bold text-apollo-black mb-2">
+                <h3 className="font-subtitle text-xl font-bold text-gray-900 mb-2">
                   {venture.name}
                 </h3>
                 <div className="flex items-center gap-2 mb-2">

@@ -1,43 +1,33 @@
 'use client'
 
 const values = [
-  {
-    title: 'Innovation',
-    description: 'We embrace new ideas and creative solutions to solve complex challenges.',
-  },
-  {
-    title: 'Collaboration',
-    description: 'We believe in the power of working together to achieve greater results.',
-  },
-  {
-    title: 'Excellence',
-    description: 'We maintain the highest standards in all our endeavors.',
-  },
-  {
-    title: 'Integrity',
-    description: 'We operate with honesty, transparency, and ethical principles.',
-  },
+  { initial: 'P', word: 'Perseverance' },
+  { initial: 'A', word: 'Ambition' },
+  { initial: 'I', word: 'Integrity' },
+  { initial: 'R', word: 'Respect' },
 ]
 
 export default function Values() {
   return (
-    <section id="values" className="py-20 px-8 bg-gray-100">
+    <section id="values" className="py-20 px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-title text-4xl font-bold text-center text-apollo-black mb-12">
-          Our Values
+        <h2 className="font-title text-4xl font-bold text-center text-gray-900 mb-12">
+          Values
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 hover:shadow-xl transition-all duration-300"
+              className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-apollo-blue hover:shadow-lg transition-all duration-300 text-center"
             >
-              <h3 className="font-subtitle text-2xl font-bold text-apollo-blue mb-4">
-                {value.title}
+              <div className="w-16 h-16 bg-apollo-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="font-subtitle text-2xl font-bold text-white">
+                  {value.initial}
+                </span>
+              </div>
+              <h3 className="font-subtitle text-xl font-bold text-gray-900">
+                {value.word}
               </h3>
-              <p className="font-caption text-lg text-gray-600">
-                {value.description}
-              </p>
             </div>
           ))}
         </div>
