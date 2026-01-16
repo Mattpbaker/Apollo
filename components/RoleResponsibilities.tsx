@@ -98,7 +98,7 @@ export default function RoleResponsibilities() {
                 variants={itemVariants}
                 className="font-caption text-base text-gray-700 leading-relaxed mb-4"
               >
-                Team leads are responsible for organizing the team's strategy and delegating tasks to working groups. They ensure alignment with Apollo's mission and vision while maintaining clear communication channels.
+                Team leads are responsible for organising the team's strategy and delegating tasks to working groups. They ensure alignment with Apollo's mission and vision while maintaining clear communication channels.
               </motion.p>
               <motion.ul
                 variants={itemVariants}
@@ -110,7 +110,7 @@ export default function RoleResponsibilities() {
                     transition={{ duration: 2, repeat: Infinity, delay: 0 }}
                     className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"
                   ></motion.div>
-                  <span className="font-caption text-sm text-gray-600">Organize team strategy</span>
+                  <span className="font-caption text-sm text-gray-600">Organise team strategy</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <motion.div
