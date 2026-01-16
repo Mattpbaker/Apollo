@@ -231,11 +231,6 @@ export default function Members() {
                   : member.role
                 }
               </p>
-              {member.roles && member.roles.length > 0 && (
-                <p className="font-caption text-xs text-gray-500 mb-3 relative z-10">
-                  Click to view details
-                </p>
-              )}
               {member.linkedin && (
                 <motion.a
                   whileHover={{ scale: 1.1 }}
@@ -243,7 +238,7 @@ export default function Members() {
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-apollo-blue hover:text-blue-600 transition-colors text-xs font-subtitle relative z-10"
+                  className="inline-flex items-center gap-1.5 text-apollo-blue hover:text-blue-600 transition-colors text-xs font-subtitle relative z-10 mb-3"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <svg
@@ -256,6 +251,11 @@ export default function Members() {
                   </svg>
                   LinkedIn
                 </motion.a>
+              )}
+              {member.roles && member.roles.length > 0 && (
+                <p className="font-caption text-xs text-gray-500 relative z-10">
+                  Click to view details
+                </p>
               )}
             </motion.div>
           ))}
