@@ -15,6 +15,9 @@ interface VentureModalProps {
       linkedin?: string
       website?: string
       youtube?: string
+      instagram?: string
+      tiktok?: string
+      linktree?: string
     }
   }
   onClose: () => void
@@ -101,6 +104,36 @@ export default function VentureModal({ venture, onClose }: VentureModalProps) {
                 className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-subtitle"
               >
                 YouTube
+              </a>
+            )}
+            {venture.socialLinks.instagram && (
+              <a
+                href={venture.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors font-subtitle"
+              >
+                Instagram
+              </a>
+            )}
+            {venture.socialLinks.tiktok && (
+              <a
+                href={venture.socialLinks.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-subtitle"
+              >
+                TikTok
+              </a>
+            )}
+            {venture.socialLinks.linktree && (
+              <a
+                href={venture.socialLinks.linktree}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-subtitle"
+              >
+                Linktree
               </a>
             )}
             {venture.socialLinks.twitter && (

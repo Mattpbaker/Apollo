@@ -10,12 +10,10 @@ const ventures = [
     name: 'Flipped It',
     founder: 'David Cruz',
     founderLinkedin: 'https://www.linkedin.com/in/david-cruz-186415294/',
-    description: 'A dynamic venture focused on innovation and growth.',
+    description: 'COP IT🛍️ LOVE IT💕 FLIP IT♻️ - A sustainable fashion venture focused on second-hand style.',
     image: 'https://via.placeholder.com/300x200/3B82F6/FFFFFF?text=Flipped+It',
     socialLinks: {
-      twitter: 'https://twitter.com/flippedit',
-      linkedin: 'https://linkedin.com/company/flippedit',
-      website: 'https://flippedit.com',
+      linktree: 'https://linktr.ee/flippedit',
     },
   },
   {
@@ -49,12 +47,11 @@ const ventures = [
     name: 'Blufin Media',
     founder: 'Grace Docherty',
     founderLinkedin: 'https://www.linkedin.com/in/grace-docherty1000/',
-    description: 'Creating compelling media content and digital experiences that engage and inspire.',
+    description: 'Social media management, strategy and content creation. Let\'s make an impact.',
     image: 'https://via.placeholder.com/300x200/A855F7/FFFFFF?text=Blufin+Media',
     socialLinks: {
-      twitter: 'https://twitter.com/blufinmedia',
-      linkedin: 'https://linkedin.com/company/blufin-media',
-      website: 'https://blufinmedia.com',
+      website: 'https://www.blufinmedia.org/',
+      instagram: 'https://www.instagram.com/blufinmedia/',
     },
   },
   {
@@ -77,9 +74,8 @@ const ventures = [
     description: 'Empowering journeys and experiences that create lasting impact and meaningful connections.',
     image: 'https://via.placeholder.com/300x200/3B82F6/FFFFFF?text=Journey+With+George',
     socialLinks: {
-      twitter: 'https://twitter.com/journeywithgeorge',
-      linkedin: 'https://linkedin.com/company/journey-with-george',
-      website: 'https://journeywithgeorge.com',
+      instagram: 'https://www.instagram.com/_journeywithgeorge/',
+      tiktok: 'https://www.tiktok.com/@journey_with_george',
     },
   },
 ]
