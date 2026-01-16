@@ -18,6 +18,8 @@ interface VentureModalProps {
       instagram?: string
       tiktok?: string
       linktree?: string
+      twitch?: string
+      discord?: string
     }
   }
   onClose: () => void
@@ -184,6 +186,26 @@ export default function VentureModal({ venture, onClose }: VentureModalProps) {
                 className="px-4 py-2 bg-apollo-blue text-white rounded-lg hover:bg-blue-600 transition-colors font-subtitle"
               >
                 Website
+              </a>
+            )}
+            {venture.socialLinks.twitch && (
+              <a
+                href={venture.socialLinks.twitch}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-subtitle"
+              >
+                Twitch
+              </a>
+            )}
+            {venture.socialLinks.discord && (
+              <a
+                href={venture.socialLinks.discord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-subtitle"
+              >
+                Discord
               </a>
             )}
           </div>

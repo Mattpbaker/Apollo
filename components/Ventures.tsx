@@ -57,11 +57,15 @@ const ventures = [
     name: 'AlexCount X',
     founder: 'Alex Keeler',
     founderLinkedin: 'https://www.linkedin.com/in/alex-keeler-872653291/',
-    description: 'Innovative solutions and cutting-edge technology to drive business success.',
+    description: 'Gaming content creator producing entertaining streams, highlights, and community-driven content across multiple platforms. Building a passionate gaming community through engaging gameplay and interactive experiences.',
     image: '/ventures/alexcount-x.png',
     socialLinks: {
       youtube: 'https://www.youtube.com/channel/UCykysNbbDz8Gv2dAj_dL92g',
       linkedin: 'https://linkedin.com/company/alexcount-x',
+      twitch: 'https://twitch.tv/alexcountx',
+      discord: 'https://discord.gg/Sc7a6ztp77',
+      tiktok: 'https://tiktok.com/@alexcountx',
+      twitter: 'https://twitter.com/alexcountx',
     },
   },
   {
