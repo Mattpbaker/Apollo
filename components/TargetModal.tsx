@@ -40,9 +40,14 @@ export default function TargetModal({ department, onClose }: TargetModalProps) {
       }
     }
 
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden'
+    
     document.addEventListener('keydown', handleEscape)
     return () => {
       document.removeEventListener('keydown', handleEscape)
+      // Restore body scroll when modal closes
+      document.body.style.overflow = 'unset'
     }
   }, [onClose])
 
@@ -54,10 +59,14 @@ export default function TargetModal({ department, onClose }: TargetModalProps) {
 
   return (
     <div 
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4 md:p-8 overflow-y-auto"
+      className="fixed inset-0 z-[9999] flex items-start justify-center bg-black/60 backdrop-blur-sm p-4 md:p-8 overflow-y-auto"
       onClick={handleBackdropClick}
+      style={{ top: 0, left: 0, right: 0, bottom: 0 }}
     >
-      <div className={`bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 md:p-8 relative my-8`}>
+      <div 
+        className={`bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 md:p-8 relative my-8 max-h-[90vh] overflow-y-auto`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-[10000] text-gray-500 hover:text-gray-700 hover:bg-gray-100 text-3xl font-bold leading-none w-10 h-10 flex items-center justify-center rounded-full transition-colors"
