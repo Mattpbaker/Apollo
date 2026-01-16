@@ -36,7 +36,6 @@ const ventures = [
     description: 'Providing top-quality cleaning services with a focus on excellence and customer satisfaction.',
     image: '/ventures/cleanest-cleaners.jpg',
     socialLinks: {
-      twitter: 'https://twitter.com/cleanestcleaners',
       linkedin: 'https://linkedin.com/company/cleanest-cleaners',
       website: 'https://cleanestcleaners.com',
     },
