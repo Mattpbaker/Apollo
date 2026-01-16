@@ -11,7 +11,7 @@ const ventures = [
     founder: 'David Cruz',
     founderLinkedin: 'https://www.linkedin.com/in/david-cruz-186415294/',
     description: 'COP IT🛍️ LOVE IT💕 FLIP IT♻️ - A sustainable fashion venture focused on second-hand style.',
-    image: 'https://via.placeholder.com/300x200/3B82F6/FFFFFF?text=Flipped+It',
+    image: '/ventures/flipped-it.jpg',
     socialLinks: {
       linktree: 'https://linktr.ee/flippedit',
     },
@@ -22,7 +22,7 @@ const ventures = [
     founder: 'Shaan & Sam',
     founderLinkedin: ['https://www.linkedin.com/in/shaan-sisodia-a10ba0194/', 'https://www.linkedin.com/in/sam-geracitano-05a758256/'],
     description: 'Delivering exceptional results through strategic partnerships and creative solutions.',
-    image: 'https://via.placeholder.com/300x200/FCD34D/000000?text=SISO+Agency',
+    image: '/ventures/siso-agency.jpg',
     socialLinks: {
       linkedin: 'https://linkedin.com/company/siso-agency',
       website: 'https://siso.agency',
@@ -34,7 +34,7 @@ const ventures = [
     founder: 'Ben John',
     founderLinkedin: 'https://www.linkedin.com/in/benjamin-john-577607293/',
     description: 'Providing top-quality cleaning services with a focus on excellence and customer satisfaction.',
-    image: 'https://via.placeholder.com/300x200/10B981/FFFFFF?text=CleaNest+Cleaners',
+    image: '/ventures/cleanest-cleaners.jpg',
     socialLinks: {
       twitter: 'https://twitter.com/cleanestcleaners',
       linkedin: 'https://linkedin.com/company/cleanest-cleaners',
@@ -47,7 +47,7 @@ const ventures = [
     founder: 'Grace Docherty',
     founderLinkedin: 'https://www.linkedin.com/in/grace-docherty1000/',
     description: 'Social media management, strategy and content creation. Let\'s make an impact.',
-    image: 'https://via.placeholder.com/300x200/A855F7/FFFFFF?text=Blufin+Media',
+    image: '/ventures/blufin-media.jpg',
     socialLinks: {
       website: 'https://www.blufinmedia.org/',
       instagram: 'https://www.instagram.com/blufinmedia/',
@@ -71,7 +71,7 @@ const ventures = [
     founder: 'George Lewis',
     founderLinkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/',
     description: 'Empowering journeys and experiences that create lasting impact and meaningful connections.',
-    image: 'https://via.placeholder.com/300x200/3B82F6/FFFFFF?text=Journey+With+George',
+    image: '/ventures/journey-with-george.jpg',
     socialLinks: {
       instagram: 'https://www.instagram.com/_journeywithgeorge/',
       tiktok: 'https://www.tiktok.com/@journey_with_george',
