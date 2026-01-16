@@ -24,9 +24,8 @@ const ventures = [
     description: 'Delivering exceptional results through strategic partnerships and creative solutions.',
     image: 'https://via.placeholder.com/300x200/FCD34D/000000?text=SISO+Agency',
     socialLinks: {
-      twitter: 'https://twitter.com/sisoagency',
       linkedin: 'https://linkedin.com/company/siso-agency',
-      website: 'https://sisoagency.com',
+      website: 'https://siso.agency',
     },
   },
   {
