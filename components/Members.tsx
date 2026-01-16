@@ -226,17 +226,15 @@ export default function Members() {
                 {member.name}
               </h3>
               <p className="font-caption text-sm text-gray-600 mb-3 relative z-10">
-                {member.role}
+                {member.roles && member.roles.length > 0 
+                  ? member.roles.map(r => r.title).join(', ')
+                  : member.role
+                }
               </p>
               {member.roles && member.roles.length > 0 && (
-                <div className="mb-3 relative z-10">
-                  <p className="font-caption text-xs text-apollo-blue font-semibold">
-                    {member.roles.length === 1 ? member.roles[0].title : `${member.roles.length} Roles`}
-                  </p>
-                  <p className="font-caption text-xs text-gray-500 mt-1">
-                    Click to view details
-                  </p>
-                </div>
+                <p className="font-caption text-xs text-gray-500 mb-3 relative z-10">
+                  Click to view details
+                </p>
               )}
               {member.linkedin && (
                 <motion.a
