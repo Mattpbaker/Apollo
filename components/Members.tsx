@@ -1,27 +1,121 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import MemberRoleModal from './MemberRoleModal'
 
-const teamMembers = [
+interface TeamMember {
+  name: string
+  role: string
+  roles?: Array<{
+    title: string
+    responsibility: string
+  }>
+  linkedin: string
+  image: string
+}
+
+const teamMembers: TeamMember[] = [
   { name: 'Emma Sexton', role: 'Team Coach', linkedin: 'https://www.linkedin.com/in/emma-sexton-7283226/', image: '/members/emma-sexton.jpg' },
-  { name: 'Jaymie Pennie', role: 'Team Lead', linkedin: 'https://www.linkedin.com/in/jaymie-penny-686685202/', image: '/members/jaymie-pennie.jpg' },
-  { name: 'James Davies', role: 'Academic Lead', linkedin: 'https://www.linkedin.com/in/james-davis-61a127333/', image: '/members/james-davies.jpg' },
+  { 
+    name: 'Jaymie Pennie', 
+    role: 'Team Lead', 
+    roles: [
+      { title: 'Strategy Lead', responsibility: 'Lead Strategy WG' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/jaymie-penny-686685202/', 
+    image: '/members/jaymie-pennie.jpg' 
+  },
+  { 
+    name: 'James Davies', 
+    role: 'Academic Lead', 
+    roles: [
+      { title: 'Academic Lead', responsibility: 'Lead Review WG' },
+      { title: 'Tracker Manager', responsibility: 'Ensure all tracking systems are up to date for December + Make KPI Graphs' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/james-davis-61a127333/', 
+    image: '/members/james-davies.jpg' 
+  },
   { name: 'George Lewis', role: 'Accountability Lead', linkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/', image: '/members/george-lewis.jpg' },
-  { name: 'Matt Baker', role: 'Member', linkedin: 'https://www.linkedin.com/in/matt-baker-655a40336/', image: '/members/matt-baker.jpg' },
-  { name: 'Ares Barbulescu', role: 'Member', linkedin: 'https://www.linkedin.com/in/ares-barbulescu-493879299/', image: '/members/ares-barbulescu.jpg' },
+  { 
+    name: 'Matt Baker', 
+    role: 'Member', 
+    roles: [
+      { title: 'Website + Social Media', responsibility: 'Use ML feedback to improve marketing links + website' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/matt-baker-655a40336/', 
+    image: '/members/matt-baker.jpg' 
+  },
+  { 
+    name: 'Ares Barbulescu', 
+    role: 'Member', 
+    roles: [
+      { title: 'Policy + Registration Form Manager', responsibility: 'Update all policies and reg form and ensure they are signed' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/ares-barbulescu-493879299/', 
+    image: '/members/ares-barbulescu.jpg' 
+  },
   { name: 'Charlie Hensman', role: 'Member', linkedin: 'https://www.linkedin.com/in/charlie-hensman-981852291/', image: '/members/charlie-hensman.jpg' },
-  { name: 'Logan Cornock', role: 'Member', linkedin: 'https://www.linkedin.com/in/logan-cornock/', image: '/members/logan-cornock.jpg' },
-  { name: 'Ben John', role: 'Member', linkedin: 'https://www.linkedin.com/in/benjamin-john-577607293/', image: '/members/ben-john.jpg' },
+  { 
+    name: 'Logan Cornock', 
+    role: 'Member', 
+    roles: [
+      { title: 'Report Writer', responsibility: 'Write Report + Progress Evaluation' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/logan-cornock/', 
+    image: '/members/logan-cornock.jpg' 
+  },
+  { 
+    name: 'Ben John', 
+    role: 'Member', 
+    roles: [
+      { title: 'Mark Variation Person', responsibility: 'Keep the whole group on accountable to deadlines - make redistribution policy based on traffic light system speak to ben' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/benjamin-john-577607293/', 
+    image: '/members/ben-john.jpg' 
+  },
   { name: 'Freddie Newman', role: 'Member', linkedin: 'https://www.linkedin.com/in/frednewman/', image: '/members/freddie-newman.jpg' },
-  { name: 'George Doyle', role: 'Member', linkedin: 'https://www.linkedin.com/in/george-doyle-827688346/', image: '/members/george-doyle.jpg' },
+  { 
+    name: 'George Doyle', 
+    role: 'Member', 
+    roles: [
+      { title: 'TS Coordinator', responsibility: 'Ensure all notes from training sessions are on teams and accessible to ML' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/george-doyle-827688346/', 
+    image: '/members/george-doyle.jpg' 
+  },
   { name: 'Sam Gerancantino', role: 'Member', linkedin: 'https://www.linkedin.com/in/sam-geracitano-05a758256/', image: '/members/sam-gerancantino.jpg' },
-  { name: 'Alex Hill', role: 'Member', linkedin: 'https://www.linkedin.com/in/alexhill01/', image: '/members/alex-hill.jpg' },
-  { name: 'Grace Docherty', role: 'Member', linkedin: 'https://www.linkedin.com/in/grace-docherty1000/', image: '/members/grace-docherty.jpg' },
+  { 
+    name: 'Alex Hill', 
+    role: 'Member', 
+    roles: [
+      { title: 'Videographer', responsibility: 'Capture and produce video content for Apollo' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/alexhill01/', 
+    image: '/members/alex-hill.jpg' 
+  },
+  { 
+    name: 'Grace Docherty', 
+    role: 'Member', 
+    roles: [
+      { title: 'Video Director', responsibility: 'Direct and oversee video production for Apollo' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/grace-docherty1000/', 
+    image: '/members/grace-docherty.jpg' 
+  },
   { name: 'Leo Han', role: 'Member', linkedin: 'https://www.linkedin.com/in/leo-han-7974b4276/', image: '/members/leo-han.jpg' },
   { name: 'SISO', role: 'Member', linkedin: 'https://www.linkedin.com/in/shaan-sisodia-a10ba0194/', image: '/members/siso.jpg' },
   { name: 'David Cruz', role: 'Member', linkedin: 'https://www.linkedin.com/in/david-cruz-186415294/', image: '/members/david-cruz.jpg' },
   { name: 'Harry Buckland', role: 'Member', linkedin: 'https://www.linkedin.com/in/harry-buckland-83a584265/', image: '/members/harry-buckland.jpg' },
-  { name: 'Alex Keeler', role: 'Member', linkedin: 'https://www.linkedin.com/in/alex-keeler-872653291/', image: '/members/alex-keeler.jpg' },
+  { 
+    name: 'Alex Keeler', 
+    role: 'Member', 
+    roles: [
+      { title: 'Proof Reader', responsibility: 'Proof read report and Pres' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/alex-keeler-872653291/', 
+    image: '/members/alex-keeler.jpg' 
+  },
 ]
 
 const containerVariants = {
@@ -47,6 +141,18 @@ const cardVariants = {
 }
 
 export default function Members() {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
+
+  const handleCardClick = (member: TeamMember) => {
+    if (member.roles && member.roles.length > 0) {
+      setSelectedMember(member)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setSelectedMember(null)
+  }
+
   return (
     <section id="members" className="py-20 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
       {/* Floating particles effect */}
@@ -94,7 +200,10 @@ export default function Members() {
               key={index}
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.05, rotateY: 5 }}
-              className="bg-white border border-gray-200 rounded-xl shadow-md p-6 transition-all duration-300 text-center group relative overflow-hidden"
+              onClick={() => handleCardClick(member)}
+              className={`bg-white border border-gray-200 rounded-xl shadow-md p-6 transition-all duration-300 text-center group relative overflow-hidden ${
+                member.roles && member.roles.length > 0 ? 'cursor-pointer hover:shadow-lg' : ''
+              }`}
             >
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 to-purple-500/0 group-hover:from-apollo-blue/5 group-hover:to-purple-500/5 transition-all duration-300"></div>
@@ -119,6 +228,16 @@ export default function Members() {
               <p className="font-caption text-sm text-gray-600 mb-3 relative z-10">
                 {member.role}
               </p>
+              {member.roles && member.roles.length > 0 && (
+                <div className="mb-3 relative z-10">
+                  <p className="font-caption text-xs text-apollo-blue font-semibold">
+                    {member.roles.length === 1 ? member.roles[0].title : `${member.roles.length} Roles`}
+                  </p>
+                  <p className="font-caption text-xs text-gray-500 mt-1">
+                    Click to view details
+                  </p>
+                </div>
+              )}
               {member.linkedin && (
                 <motion.a
                   whileHover={{ scale: 1.1 }}
@@ -144,6 +263,13 @@ export default function Members() {
           ))}
         </motion.div>
       </div>
+
+      {selectedMember && (
+        <MemberRoleModal
+          member={selectedMember}
+          onClose={handleCloseModal}
+        />
+      )}
     </section>
   )
 }
