@@ -55,8 +55,9 @@ export default function VentureModal({ venture, onClose }: VentureModalProps) {
       style={{ top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden' }}
     >
       <div 
-        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 md:p-8 relative max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 md:p-8 relative max-h-[90vh] overflow-y-auto mx-auto my-auto"
         onClick={(e) => e.stopPropagation()}
+        style={{ margin: 'auto' }}
       >
         <button
           onClick={onClose}
