@@ -7,6 +7,11 @@ import TargetModal from './TargetModal'
 const departments = [
   {
     name: 'Finance',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
     targets: [
       '£50,000 in revenue with a 25% profit margin',
       'By 30th March 2026, each member of Apollo must individually generate a minimum of £500 in revenue',
@@ -39,6 +44,11 @@ const departments = [
   },
   {
     name: 'Business Development',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      </svg>
+    ),
     targets: [
       'Build each venture a tailored data driven customer acquisition framework that maximises conversion efficiency and ROI',
       'To drive measurable growth in individual ventures and increase engagement with external businesses by interacting with minimum 50 organisations by May 2026',
@@ -69,6 +79,11 @@ const departments = [
   },
   {
     name: 'Sustainability',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
     targets: [
       '100% of Apollo members to complete a "Sustainability Audit" and implement at least one carbon-reduction or circular-economy practice by April 2026',
       'To transition from individual wellbeing tracking to a "Team Resilience" model, achieving a 90% accountability rate and hosting two formal workshops within sessions by April 2026',
@@ -97,6 +112,11 @@ const departments = [
   },
   {
     name: 'Community Contribution',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
     targets: [
       'Organise impactful community events - create meaningful events, workshops and the Client Project for TE learning',
       '4 events per term (workshops, networking, creative conversation, mentor sessions etc.), 30+ attendees',
@@ -161,23 +181,28 @@ export default function Targets() {
 
   return (
     <section id="targets" className="py-20 px-8 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-      {/* Animated diagonal lines */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Enhanced background pattern */}
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(59, 130, 246, 0.1) 10px, rgba(59, 130, 246, 0.1) 20px)',
         }}></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-title text-4xl font-bold text-center text-gray-900 mb-12"
+          className="text-center mb-16"
         >
-          Our Team Targets
-        </motion.h2>
+          <h2 className="font-title text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our Team Targets
+          </h2>
+          <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
+            Strategic goals driving Apollo's success across all departments
+          </p>
+        </motion.div>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -189,20 +214,57 @@ export default function Targets() {
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -12, scale: 1.03 }}
               onClick={() => handleCardClick(index)}
-              className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group"
+              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className={`bg-gradient-to-br ${dept.color} p-6 relative overflow-hidden`}
+                whileHover={{ scale: 1.02 }}
+                className={`bg-gradient-to-br ${dept.color} p-8 relative overflow-hidden`}
               >
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                    backgroundSize: '24px 24px',
+                  }}></div>
+                </div>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <h3 className="font-subtitle text-2xl font-bold text-white relative z-10">
-                  {dept.name}
-                </h3>
+                
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      animate={{ rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+                      className="bg-white/20 backdrop-blur-sm rounded-xl p-3"
+                    >
+                      <div className="text-white">
+                        {dept.icon}
+                      </div>
+                    </motion.div>
+                    <h3 className="font-subtitle text-2xl md:text-3xl font-bold text-white">
+                      {dept.name}
+                    </h3>
+                  </div>
+                  {dept.ragRating && (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2, type: "spring" }}
+                      className={`px-4 py-2 rounded-full font-bold text-sm shadow-lg ${
+                        dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900' :
+                        dept.ragRating === 'RED' ? 'bg-red-400 text-red-900' :
+                        dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900' :
+                        'bg-green-400 text-green-900'
+                      }`}
+                    >
+                      {dept.ragRating}
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
-              <div className="p-6 space-y-4">
+              <div className="p-8 space-y-5">
                 {dept.targets.map((target, targetIndex) => (
                   <motion.div
                     key={targetIndex}
@@ -210,25 +272,43 @@ export default function Targets() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: targetIndex * 0.1 }}
-                    className="flex items-start gap-3"
+                    className="flex items-start gap-4 group/item"
                   >
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity, delay: targetIndex * 0.3 }}
-                      className={`w-2 h-2 rounded-full bg-gradient-to-br ${dept.color} mt-2 flex-shrink-0`}
+                      className={`w-3 h-3 rounded-full bg-gradient-to-br ${dept.color} mt-1.5 flex-shrink-0 shadow-md`}
                     ></motion.div>
-                    <p className="font-caption text-base text-gray-700 leading-relaxed">
+                    <p className="font-caption text-base text-gray-700 leading-relaxed flex-1">
                       {target}
                     </p>
                   </motion.div>
                 ))}
-                <motion.p
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-sm text-gray-500 mt-4 italic"
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="pt-4 border-t border-gray-100 mt-6"
                 >
-                  Click to learn more →
-                </motion.p>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="flex items-center gap-2 text-sm font-semibold text-gray-600 group-hover:text-apollo-blue transition-colors"
+                  >
+                    <span>Click to learn more</span>
+                    <motion.svg
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </motion.svg>
+                  </motion.div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
