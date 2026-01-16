@@ -50,12 +50,12 @@ export default function VentureModal({ venture, onClose }: VentureModalProps) {
 
   return (
     <div 
-      className="fixed inset-0 z-[9999] flex items-start justify-center bg-black/60 backdrop-blur-sm p-4 md:p-8 overflow-y-auto"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 md:p-8"
       onClick={handleBackdropClick}
-      style={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      style={{ top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden' }}
     >
       <div 
-        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 md:p-8 relative my-8 max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 md:p-8 relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
