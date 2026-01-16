@@ -5,27 +5,52 @@ import { motion } from 'framer-motion'
 
 export default function CTA() {
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError('')
     setSubmitted(false)
+    setIsSubmitting(true)
 
     if (!email || !email.includes('@')) {
       setError('Please enter a valid email address.')
+      setIsSubmitting(false)
       return
     }
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name: name || undefined,
+          message: message || undefined,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send email')
+      }
+
       setSubmitted(true)
       setEmail('')
+      setName('')
+      setMessage('')
       setError('')
     } catch (err) {
-      setError('Failed to send email. Please try again.')
+      setError(err instanceof Error ? err.message : 'Failed to send email. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -87,27 +112,41 @@ export default function CTA() {
             Have a question or want to collaborate? Send us a message!
           </motion.p>
           
-          <form onSubmit={handleSubmit} className="mt-8">
-            <div className="flex flex-col md:flex-row gap-4">
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                className="flex-1 px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-apollo-blue font-caption"
-                required
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                disabled={submitted}
-                className="px-8 py-4 bg-apollo-blue text-white font-subtitle font-bold rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg"
-              >
-                {submitted ? 'Sending...' : 'Send Message'}
-              </motion.button>
-            </div>
+          <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+            <motion.input
+              whileFocus={{ scale: 1.02 }}
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name (optional)"
+              className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-apollo-blue font-caption"
+            />
+            <motion.input
+              whileFocus={{ scale: 1.02 }}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address *"
+              className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-apollo-blue font-caption"
+              required
+            />
+            <motion.textarea
+              whileFocus={{ scale: 1.02 }}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Your message (optional)"
+              rows={4}
+              className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-apollo-blue font-caption resize-none"
+            />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              type="submit"
+              disabled={isSubmitting || submitted}
+              className="w-full px-8 py-4 bg-apollo-blue text-white font-subtitle font-bold rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg"
+            >
+              {isSubmitting ? 'Sending...' : submitted ? 'Message Sent!' : 'Send Message'}
+            </motion.button>
             {error && (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
