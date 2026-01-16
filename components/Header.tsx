@@ -23,6 +23,9 @@ export default function Header() {
           <a href="#targets" className="font-subtitle text-lg hover:text-apollo-blue transition-colors">
             Targets
           </a>
+          <a href="#roles" className="font-subtitle text-lg hover:text-apollo-blue transition-colors">
+            Roles
+          </a>
           <a href="#members" className="font-subtitle text-lg hover:text-apollo-blue transition-colors">
             Members
           </a>

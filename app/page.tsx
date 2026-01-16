@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import MissionVision from '@/components/MissionVision'
 import Targets from '@/components/Targets'
+import RoleResponsibilities from '@/components/RoleResponsibilities'
 import Members from '@/components/Members'
 import Ventures from '@/components/Ventures'
 import CTA from '@/components/CTA'
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <MissionVision />
       <Targets />
+      <RoleResponsibilities />
       <Members />
       <Ventures />
       <CTA />
