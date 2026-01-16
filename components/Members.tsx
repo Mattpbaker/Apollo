@@ -153,6 +153,18 @@ export default function Members() {
     setSelectedMember(null)
   }
 
+  // Sort members: those with roles first, then those with only "Member" role
+  const sortedMembers = [...teamMembers].sort((a, b) => {
+    const aHasRoles = a.roles && a.roles.length > 0
+    const bHasRoles = b.roles && b.roles.length > 0
+    const aIsMemberOnly = a.role === 'Member' && !aHasRoles
+    const bIsMemberOnly = b.role === 'Member' && !bHasRoles
+    
+    if (aHasRoles && bIsMemberOnly) return -1
+    if (aIsMemberOnly && bHasRoles) return 1
+    return 0
+  })
+
   return (
     <section id="members" className="py-20 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
       {/* Floating particles effect */}
@@ -195,7 +207,7 @@ export default function Members() {
           variants={containerVariants}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
         >
-          {teamMembers.map((member, index) => (
+          {sortedMembers.map((member, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
