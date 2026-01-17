@@ -9,6 +9,7 @@ const navItems = [
   { id: 'roles', label: 'Roles' },
   { id: 'members', label: 'Members' },
   { id: 'ventures', label: 'Ventures' },
+  { id: 'workspace', label: 'Workspace' },
   { id: 'cta', label: 'Contact' },
 ]
 

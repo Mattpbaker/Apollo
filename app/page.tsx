@@ -4,6 +4,7 @@ import Targets from '@/components/Targets'
 import RoleResponsibilities from '@/components/RoleResponsibilities'
 import Members from '@/components/Members'
 import Ventures from '@/components/Ventures'
+import NotionWorkspace from '@/components/NotionWorkspace'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
@@ -20,6 +21,7 @@ export default function Home() {
       <RoleResponsibilities />
       <Members />
       <Ventures />
+      <NotionWorkspace />
       <CTA />
       <Footer />
       <BackToTop />
