@@ -231,22 +231,30 @@ export default function Targets() {
                     backgroundSize: '24px 24px',
                   }}></div>
                 </div>
+                {/* Decorative circles */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-xl -ml-12 -mb-12"></div>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                 
-                <div className="relative z-10 flex items-center justify-between">
+                <div className="relative z-10 flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center gap-4">
                     <motion.div
                       animate={{ rotate: [0, 5, -5, 0] }}
                       transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-                      className="bg-white/20 backdrop-blur-sm rounded-xl p-3"
+                      className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-white/30"
                     >
                       <div className="text-white">
                         {dept.icon}
                       </div>
                     </motion.div>
-                    <h3 className="font-subtitle text-2xl md:text-3xl font-bold text-white">
-                      {dept.name}
-                    </h3>
+                    <div>
+                      <h3 className="font-subtitle text-2xl md:text-3xl font-bold text-white mb-1">
+                        {dept.name}
+                      </h3>
+                      <p className="text-white/80 text-sm font-caption">
+                        Department Targets
+                      </p>
+                    </div>
                   </div>
                   {dept.ragRating && (
                     <motion.div
@@ -254,49 +262,63 @@ export default function Targets() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2, type: "spring" }}
-                      className={`px-4 py-2 rounded-full font-bold text-sm shadow-lg ${
-                        dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900' :
-                        dept.ragRating === 'RED' ? 'bg-red-400 text-red-900' :
-                        dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900' :
-                        'bg-green-400 text-green-900'
+                      className={`px-5 py-2.5 rounded-full font-bold text-sm shadow-xl border-2 ${
+                        dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900 border-yellow-500' :
+                        dept.ragRating === 'RED' ? 'bg-red-400 text-red-900 border-red-500' :
+                        dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900 border-amber-500' :
+                        'bg-green-400 text-green-900 border-green-500'
                       }`}
                     >
-                      {dept.ragRating}
+                      {dept.ragRating} RAG
                     </motion.div>
                   )}
                 </div>
               </motion.div>
-              <div className="p-8 space-y-5">
-                {dept.targets.map((target, targetIndex) => (
-                  <motion.div
-                    key={targetIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: targetIndex * 0.1 }}
-                    className="flex items-start gap-4 group/item"
-                  >
+              <div className="p-8 bg-white">
+                <div className="space-y-4 mb-6">
+                  {dept.targets.map((target, targetIndex) => (
                     <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: targetIndex * 0.3 }}
-                      className={`w-3 h-3 rounded-full bg-gradient-to-br ${dept.color} mt-1.5 flex-shrink-0 shadow-md`}
-                    ></motion.div>
-                    <p className="font-caption text-base text-gray-700 leading-relaxed flex-1">
-                      {target}
-                    </p>
-                  </motion.div>
-                ))}
+                      key={targetIndex}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: targetIndex * 0.1 }}
+                      whileHover={{ x: 4 }}
+                      className="group/item"
+                    >
+                      <div className="flex items-start gap-4 p-4 rounded-lg bg-gradient-to-r from-gray-50 to-white border-l-4 hover:shadow-md transition-all duration-300"
+                        style={{
+                          borderLeftColor: dept.color.includes('green') ? '#10B981' : 
+                                        dept.color.includes('blue') ? '#3B82F6' : 
+                                        dept.color.includes('purple') ? '#A855F7' : 
+                                        dept.color.includes('emerald') ? '#10B981' : '#3B82F6'
+                        }}
+                      >
+                        <motion.div
+                          animate={{ scale: [1, 1.15, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: targetIndex * 0.3 }}
+                          className={`w-5 h-5 rounded-full bg-gradient-to-br ${dept.color} mt-0.5 flex-shrink-0 shadow-md flex items-center justify-center`}
+                        >
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        </motion.div>
+                        <p className="font-caption text-base text-gray-800 leading-relaxed flex-1 font-medium">
+                          {target}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="pt-4 border-t border-gray-100 mt-6"
+                  className="pt-6 border-t-2 border-gray-100"
                 >
                   <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="flex items-center gap-2 text-sm font-semibold text-gray-600 group-hover:text-apollo-blue transition-colors"
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-2 text-sm font-semibold text-gray-600 group-hover:text-apollo-blue transition-colors cursor-pointer"
                   >
                     <span>Click to learn more</span>
                     <motion.svg
