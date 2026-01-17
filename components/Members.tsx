@@ -167,6 +167,9 @@ export default function Members() {
 
   const membersWithRoles = sortedMembers.filter(m => m.roles && m.roles.length > 0).length
   const totalMembers = sortedMembers.length
+  
+  // Team Leads who should have the blue badge
+  const teamLeadNames = ['Jaymie Pennie', 'James Davies', 'George Lewis']
 
   return (
     <section id="members" className="py-32 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
@@ -323,17 +326,12 @@ export default function Members() {
                 {member.name}
               </h3>
               <div className="relative z-10 mb-3">
-                <p className="font-caption text-sm font-semibold text-gray-700 mb-1">
+                <p className="font-caption text-sm font-semibold text-gray-700">
                   {member.roles && member.roles.length > 0 
                     ? member.roles.map(r => r.title).join(', ')
                     : member.role
                   }
                 </p>
-                {member.role !== 'Member' && member.role !== 'Team Coach' && member.role !== 'Team Lead' && (
-                  <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-                    {member.role}
-                  </span>
-                )}
               </div>
               {member.linkedin && (
                 <motion.a
@@ -376,6 +374,14 @@ export default function Members() {
                     </motion.svg>
                   </span>
                 </motion.div>
+              )}
+              {/* Team Lead Badge - only for specific members */}
+              {teamLeadNames.includes(member.name) && (
+                <div className="relative z-10 mt-4 pt-3 border-t border-gray-200">
+                  <span className="inline-block px-3 py-1 bg-apollo-blue text-white text-xs font-semibold rounded-full">
+                    Team Lead
+                  </span>
+                </div>
               )}
             </motion.div>
           ))}
