@@ -291,7 +291,7 @@ export default function Members() {
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.05, rotateY: 5 }}
               onClick={() => handleCardClick(member)}
-              className={`bg-white border-2 border-gray-200 rounded-2xl shadow-lg p-6 transition-all duration-300 text-center group relative overflow-hidden ${
+              className={`bg-white border-2 border-gray-200 rounded-2xl shadow-lg p-6 transition-all duration-300 text-center group relative overflow-hidden flex flex-col ${
                 member.roles && member.roles.length > 0 ? 'cursor-pointer hover:shadow-2xl hover:border-apollo-blue' : ''
               }`}
             >
@@ -377,7 +377,7 @@ export default function Members() {
               )}
               {/* Team Lead Badge - only for specific members */}
               {teamLeadNames.includes(member.name) && (
-                <div className="relative z-10 mt-4 pt-3 border-t border-gray-200">
+                <div className="relative z-10 mt-auto pt-4">
                   <span className="inline-block px-3 py-1 bg-apollo-blue text-white text-xs font-semibold rounded-full">
                     Team Lead
                   </span>
