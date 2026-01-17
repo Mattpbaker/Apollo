@@ -155,15 +155,20 @@ export default function Ventures() {
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-title text-4xl font-bold text-center gradient-text mb-12"
+          className="text-center mb-16"
         >
-          Apollo's Ventures + Projects
-        </motion.h2>
+          <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-4">
+            Apollo's Ventures + Projects
+          </h2>
+          <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover the innovative ventures and projects driving Apollo's entrepreneurial spirit
+          </p>
+        </motion.div>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -171,54 +176,96 @@ export default function Ventures() {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {ventures.map((venture) => (
-            <motion.div
-              key={venture.id}
-              variants={cardVariants}
-              whileHover={{ y: -15, rotateY: 5, scale: 1.02 }}
-              onClick={() => handleCardClick(venture.id)}
-              className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden cursor-pointer group relative"
-            >
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 to-purple-500/0 group-hover:from-apollo-blue/10 group-hover:to-purple-500/10 transition-all duration-300 z-0"></div>
-              
+          {ventures.map((venture) => {
+            const socialCount = Object.keys(venture.socialLinks || {}).length
+            return (
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-full h-48 bg-gray-200 mb-4 rounded-t-xl overflow-hidden relative z-10"
+                key={venture.id}
+                variants={cardVariants}
+                whileHover={{ y: -12, scale: 1.03 }}
+                onClick={() => handleCardClick(venture.id)}
+                className="bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer group relative border-2 border-gray-100 hover:border-apollo-blue/30 transition-all duration-300"
               >
-                <img 
-                  src={venture.image} 
-                  alt={venture.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = `https://via.placeholder.com/300x200/000000/FFFFFF?text=${encodeURIComponent(venture.name)}`
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.div>
-              <div className="p-6 relative z-10">
-                <h3 className="font-subtitle text-xl font-bold text-gray-900 mb-2">
-                  {venture.name}
-                </h3>
-                <div className="flex items-center gap-2 mb-2">
-                  <p className="font-caption text-sm text-gray-500">
-                    Founder: {venture.founder}
-                  </p>
-                  {renderLinkedInIcons(venture.founderLinkedin)}
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-apollo-blue/5 via-purple-500/5 to-pink-500/5 pointer-events-none"></div>
+                
+                {/* Image Section */}
+                <div className="relative h-56 overflow-hidden">
+                  <motion.img 
+                    src={venture.image} 
+                    alt={venture.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://via.placeholder.com/400x300/6366F1/FFFFFF?text=${encodeURIComponent(venture.name)}`
+                    }}
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  
+                  {/* Social links badge */}
+                  {socialCount > 0 && (
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-lg">
+                      <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                      <span className="text-xs font-semibold text-gray-700">{socialCount}</span>
+                    </div>
+                  )}
+                  
+                  {/* Venture name overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="font-subtitle text-2xl font-bold text-white mb-1 drop-shadow-lg">
+                      {venture.name}
+                    </h3>
+                  </div>
                 </div>
-                <p className="font-caption text-base text-gray-600 line-clamp-3">
-                  {venture.description}
-                </p>
-                <motion.p
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-sm text-apollo-blue mt-4 font-semibold"
-                >
-                  Click to explore →
-                </motion.p>
-              </div>
-            </motion.div>
-          ))}
+                
+                {/* Content Section */}
+                <div className="p-6 relative z-10">
+                  {/* Founder info */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-gradient-to-br from-apollo-blue to-purple-600 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-caption text-xs text-gray-500">Founder</p>
+                        <p className="font-subtitle text-sm font-semibold text-gray-800">
+                          {venture.founder}
+                        </p>
+                      </div>
+                    </div>
+                    {renderLinkedInIcons(venture.founderLinkedin)}
+                  </div>
+                  
+                  {/* Description */}
+                  <p className="font-caption text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
+                    {venture.description}
+                  </p>
+                  
+                  {/* CTA */}
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-2 text-apollo-blue font-semibold text-sm pt-4 border-t border-gray-100"
+                  >
+                    <span>Explore Venture</span>
+                    <motion.svg
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </motion.svg>
+                  </motion.div>
+                </div>
+              </motion.div>
+            )
+          })}
         </motion.div>
         
         {selectedVenture && (
