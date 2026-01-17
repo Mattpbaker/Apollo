@@ -165,11 +165,14 @@ export default function Members() {
     return 0
   })
 
+  const membersWithRoles = sortedMembers.filter(m => m.roles && m.roles.length > 0).length
+  const totalMembers = sortedMembers.length
+
   return (
-    <section id="members" className="py-20 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
-      {/* Floating particles effect */}
+    <section id="members" className="py-32 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+      {/* Enhanced floating particles effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-apollo-blue rounded-full opacity-20"
@@ -180,6 +183,7 @@ export default function Members() {
             animate={{
               y: [null, Math.random() * 800],
               x: [null, Math.random() * 1200],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
               duration: Math.random() * 10 + 10,
@@ -189,17 +193,88 @@ export default function Members() {
           />
         ))}
       </div>
+
+      {/* Geometric shapes background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-20 w-64 h-64 border-2 border-apollo-blue rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-48 h-48 border-2 border-purple-500 rotate-45"></div>
+      </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-title text-4xl font-bold text-center gradient-text mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          Our Team
-        </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="font-title text-5xl md:text-6xl font-bold gradient-text mb-6"
+          >
+            Our Team
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="font-caption text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
+          >
+            Meet the talented individuals driving Apollo's success
+          </motion.p>
+
+          {/* Team Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
+          >
+            <div className="text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
+                className="text-4xl md:text-5xl font-bold text-apollo-blue mb-2"
+              >
+                {totalMembers}
+              </motion.div>
+              <p className="font-caption text-sm text-gray-600">Team Members</p>
+            </div>
+            <div className="w-px h-12 bg-gray-300"></div>
+            <div className="text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
+                className="text-4xl md:text-5xl font-bold text-purple-600 mb-2"
+              >
+                {membersWithRoles}
+              </motion.div>
+              <p className="font-caption text-sm text-gray-600">Active Roles</p>
+            </div>
+            <div className="w-px h-12 bg-gray-300"></div>
+            <div className="text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
+                className="text-4xl md:text-5xl font-bold text-green-600 mb-2"
+              >
+                {sortedMembers.filter(m => m.role === 'Team Lead' || m.role === 'Team Coach' || m.role.includes('Lead')).length}
+              </motion.div>
+              <p className="font-caption text-sm text-gray-600">Leaders</p>
+            </div>
+          </motion.div>
+        </motion.div>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -213,40 +288,53 @@ export default function Members() {
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.05, rotateY: 5 }}
               onClick={() => handleCardClick(member)}
-              className={`bg-white border border-gray-200 rounded-xl shadow-md p-6 transition-all duration-300 text-center group relative overflow-hidden ${
-                member.roles && member.roles.length > 0 ? 'cursor-pointer hover:shadow-xl' : ''
+              className={`bg-white border-2 border-gray-200 rounded-2xl shadow-lg p-6 transition-all duration-300 text-center group relative overflow-hidden ${
+                member.roles && member.roles.length > 0 ? 'cursor-pointer hover:shadow-2xl hover:border-apollo-blue' : ''
               }`}
             >
               {/* Enhanced hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 via-purple-500/0 to-pink-500/0 group-hover:from-apollo-blue/10 group-hover:via-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 via-purple-500/0 to-pink-500/0 group-hover:from-apollo-blue/10 group-hover:via-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500 rounded-2xl"></div>
               {/* Shine effect on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl"></div>
               </div>
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-apollo-blue/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-2xl"></div>
               
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden border-2 border-gray-100 relative z-10"
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                className="w-28 h-28 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-5 overflow-hidden border-4 border-white shadow-lg relative z-10 group/avatar"
               >
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover/avatar:scale-110 transition-transform duration-300"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none'
-                    e.currentTarget.parentElement!.className = 'w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4'
+                    const parent = e.currentTarget.parentElement!
+                    parent.className = 'w-28 h-28 bg-gradient-to-br from-apollo-blue to-purple-600 rounded-full mx-auto mb-5 flex items-center justify-center border-4 border-white shadow-lg relative z-10'
+                    parent.innerHTML = `<span class="text-white font-bold text-2xl">${member.name.split(' ').map(n => n[0]).join('')}</span>`
                   }}
                 />
+                {/* Ring effect on hover */}
+                <div className="absolute inset-0 rounded-full border-4 border-apollo-blue opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300 scale-110"></div>
               </motion.div>
-              <h3 className="font-subtitle text-lg font-bold text-gray-900 mb-2 relative z-10">
+              <h3 className="font-subtitle text-lg font-bold text-gray-900 mb-2 relative z-10 group-hover:text-apollo-blue transition-colors">
                 {member.name}
               </h3>
-              <p className="font-caption text-sm text-gray-600 mb-3 relative z-10">
-                {member.roles && member.roles.length > 0 
-                  ? member.roles.map(r => r.title).join(', ')
-                  : member.role
-                }
-              </p>
+              <div className="relative z-10 mb-3">
+                <p className="font-caption text-sm font-semibold text-gray-700 mb-1">
+                  {member.roles && member.roles.length > 0 
+                    ? member.roles.map(r => r.title).join(', ')
+                    : member.role
+                  }
+                </p>
+                {member.role !== 'Member' && member.role !== 'Team Coach' && member.role !== 'Team Lead' && (
+                  <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                    {member.role}
+                  </span>
+                )}
+              </div>
               {member.linkedin && (
                 <motion.a
                   whileHover={{ scale: 1.1 }}
@@ -269,9 +357,25 @@ export default function Members() {
                 </motion.a>
               )}
               {member.roles && member.roles.length > 0 && (
-                <p className="font-caption text-xs text-gray-500 relative z-10">
-                  Click to view details
-                </p>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="relative z-10 mt-3"
+                >
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-apollo-blue">
+                    <span>View Details</span>
+                    <motion.svg
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </motion.svg>
+                  </span>
+                </motion.div>
               )}
             </motion.div>
           ))}
