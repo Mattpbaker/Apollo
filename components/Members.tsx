@@ -18,7 +18,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   { name: 'Emma Sexton', role: 'Team Coach', linkedin: 'https://www.linkedin.com/in/emma-sexton-7283226/', image: '/members/emma-sexton.jpg' },
   { 
-    name: 'Jaymie Pennie', 
+    name: 'Jaymie Penny', 
     role: 'Team Lead', 
     roles: [
       { title: 'Strategy Lead', responsibility: 'Lead Strategy WG' }
@@ -169,7 +169,7 @@ export default function Members() {
   const totalMembers = sortedMembers.length
   
   // Team Leads who should have the blue badge
-  const teamLeadNames = ['Jaymie Pennie', 'James Davies', 'George Lewis']
+  const teamLeadNames = ['Jaymie Penny', 'James Davies', 'George Lewis']
 
   return (
     <section id="members" className="py-32 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
