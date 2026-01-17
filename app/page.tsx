@@ -21,7 +21,11 @@ export default function Home() {
       <RoleResponsibilities />
       <Members />
       <Ventures />
-      <NotionWorkspace />
+      <NotionWorkspace 
+        workspaceUrl="https://dashing-capacity-25f.notion.site/Apollo-Team-Hub-2680480e9eae815085e2fb6d1ca4f039"
+        title="Apollo Team Hub"
+        description="Access our shared workspace, documents, and collaborative resources"
+      />
       <CTA />
       <Footer />
       <BackToTop />
