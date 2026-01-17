@@ -33,11 +33,52 @@ const itemVariants = {
 export default function MissionVision() {
   return (
     <section id="mission" className="py-20 px-8 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Animated background elements with parallax */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob parallax"
+          style={{
+            y: 0,
+          }}
+          animate={{
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        ></motion.div>
+        <motion.div
+          className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000 parallax"
+          style={{
+            y: 0,
+          }}
+          animate={{
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1,
+          }}
+        ></motion.div>
+        <motion.div
+          className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000 parallax"
+          style={{
+            y: 0,
+          }}
+          animate={{
+            y: [0, -25, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2,
+          }}
+        ></motion.div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
@@ -51,7 +92,7 @@ export default function MissionVision() {
           {/* Left Column - Mission & Vision */}
           <div className="space-y-8">
             <motion.div variants={itemVariants}>
-              <h2 className="font-title text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Mission
               </h2>
               <motion.div
@@ -65,7 +106,7 @@ export default function MissionVision() {
             </motion.div>
             
             <motion.div variants={itemVariants}>
-              <h2 className="font-title text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-6">
                 Vision
               </h2>
               <motion.div
@@ -81,7 +122,7 @@ export default function MissionVision() {
           
           {/* Right Column - Values */}
           <motion.div variants={itemVariants}>
-            <h2 className="font-title text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-6">
               Values
             </h2>
             <div className="space-y-4">

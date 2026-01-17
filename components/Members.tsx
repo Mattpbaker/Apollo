@@ -196,7 +196,7 @@ export default function Members() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-title text-4xl font-bold text-center text-gray-900 mb-12"
+          className="font-title text-4xl font-bold text-center gradient-text mb-12"
         >
           Our Team
         </motion.h2>
@@ -214,11 +214,15 @@ export default function Members() {
               whileHover={{ y: -10, scale: 1.05, rotateY: 5 }}
               onClick={() => handleCardClick(member)}
               className={`bg-white border border-gray-200 rounded-xl shadow-md p-6 transition-all duration-300 text-center group relative overflow-hidden ${
-                member.roles && member.roles.length > 0 ? 'cursor-pointer hover:shadow-lg' : ''
+                member.roles && member.roles.length > 0 ? 'cursor-pointer hover:shadow-xl' : ''
               }`}
             >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 to-purple-500/0 group-hover:from-apollo-blue/5 group-hover:to-purple-500/5 transition-all duration-300"></div>
+              {/* Enhanced hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-apollo-blue/0 via-purple-500/0 to-pink-500/0 group-hover:from-apollo-blue/10 group-hover:via-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+              {/* Shine effect on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </div>
               
               <motion.div
                 whileHover={{ scale: 1.1 }}

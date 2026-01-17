@@ -6,10 +6,13 @@ import Members from '@/components/Members'
 import Ventures from '@/components/Ventures'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
+import ScrollProgress from '@/components/ScrollProgress'
+import BackToTop from '@/components/BackToTop'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <ScrollProgress />
       <Header />
       <MissionVision />
       <Targets />
@@ -18,6 +21,7 @@ export default function Home() {
       <Ventures />
       <CTA />
       <Footer />
+      <BackToTop />
     </main>
   )
 }

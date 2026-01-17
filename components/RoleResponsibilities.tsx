@@ -50,7 +50,7 @@ export default function RoleResponsibilities() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-title text-4xl font-bold text-center text-gray-900 mb-4"
+          className="font-title text-4xl font-bold text-center gradient-text mb-4"
         >
           Role Responsibilities
         </motion.h2>

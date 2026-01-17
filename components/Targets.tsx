@@ -196,7 +196,7 @@ export default function Targets() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-title text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-4">
             Our Team Targets
           </h2>
           <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
@@ -214,10 +214,12 @@ export default function Targets() {
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ y: -12, scale: 1.03 }}
+              whileHover={{ y: -12, scale: 1.03, rotateY: 2 }}
               onClick={() => handleCardClick(index)}
-              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100"
+              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative"
             >
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-50/50 to-purple-50/50 pointer-events-none"></div>
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className={`bg-gradient-to-br ${dept.color} p-8 relative overflow-hidden`}

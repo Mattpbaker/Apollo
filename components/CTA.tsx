@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Toast from './Toast'
 
 export default function CTA() {
   const [email, setEmail] = useState('')
@@ -10,6 +11,11 @@ export default function CTA() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info'; isVisible: boolean }>({
+    message: '',
+    type: 'info',
+    isVisible: false,
+  })
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -47,8 +53,19 @@ export default function CTA() {
       setName('')
       setMessage('')
       setError('')
+      setToast({
+        message: 'Message sent successfully! We\'ll get back to you soon.',
+        type: 'success',
+        isVisible: true,
+      })
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to send email. Please try again.')
+      const errorMessage = err instanceof Error ? err.message : 'Failed to send email. Please try again.'
+      setError(errorMessage)
+      setToast({
+        message: errorMessage,
+        type: 'error',
+        isVisible: true,
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -168,6 +185,12 @@ export default function CTA() {
           </form>
         </motion.div>
       </div>
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={() => setToast({ ...toast, isVisible: false })}
+      />
     </section>
   )
 }
