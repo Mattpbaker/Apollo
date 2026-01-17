@@ -115,7 +115,7 @@ export default function Footer() {
               © {currentYear} Apollo. All rights reserved.
             </p>
             <p className="font-caption text-sm text-gray-500 text-center md:text-right">
-              Built with passion by the Apollo team
+              Build with passion by Matt Baker
             </p>
           </div>
         </div>
