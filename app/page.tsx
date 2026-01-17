@@ -8,6 +8,7 @@ import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
 import BackToTop from '@/components/BackToTop'
+import FloatingCTA from '@/components/FloatingCTA'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <CTA />
       <Footer />
       <BackToTop />
+      <FloatingCTA />
     </main>
   )
 }
