@@ -21,8 +21,8 @@ export default function NotionWorkspace({
     <section id="workspace" className="py-20 px-8 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-64 h-64 border-2 border-gray-300 rounded-full"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 border-2 border-gray-300 rounded-full"></div>
+        <div className="absolute top-0 left-0 w-64 h-64 border-2 border-apollo-blue rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 border-2 border-purple-500 rounded-full"></div>
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -47,18 +47,19 @@ export default function NotionWorkspace({
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           whileHover={{ scale: 1.02, y: -5 }}
-          className="bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden group cursor-pointer"
+          className="bg-white rounded-2xl shadow-xl border-2 border-apollo-blue/20 overflow-hidden group cursor-pointer"
           onClick={handleClick}
         >
-          {/* Notion-style header */}
-          <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black p-8 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
+          {/* Apollo-themed header */}
+          <div className="bg-gradient-to-br from-apollo-blue via-blue-600 to-purple-600 p-8 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-20">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-apollo-yellow rounded-full blur-3xl opacity-30"></div>
             </div>
             <div className="relative z-10 flex items-center gap-4">
-              {/* Notion logo placeholder - you can replace with actual Notion logo */}
-              <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-10 h-10 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* Apollo workspace icon */}
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-white/30">
+                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
@@ -83,27 +84,27 @@ export default function NotionWorkspace({
           </div>
 
           {/* Content preview */}
-          <div className="p-8">
+          <div className="p-8 bg-gradient-to-br from-blue-50/50 to-purple-50/50">
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-apollo-blue mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 rounded-full bg-apollo-blue mt-2 flex-shrink-0 shadow-sm"></div>
                 <div className="flex-1">
-                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-3 bg-gray-100 rounded w-full"></div>
+                  <div className="h-4 bg-apollo-blue/10 rounded w-3/4 mb-2 border-l-2 border-apollo-blue"></div>
+                  <div className="h-3 bg-apollo-blue/5 rounded w-full"></div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0 shadow-sm"></div>
                 <div className="flex-1">
-                  <div className="h-4 bg-gray-200 rounded w-2/3 mb-2"></div>
-                  <div className="h-3 bg-gray-100 rounded w-full"></div>
+                  <div className="h-4 bg-purple-500/10 rounded w-2/3 mb-2 border-l-2 border-purple-500"></div>
+                  <div className="h-3 bg-purple-500/5 rounded w-full"></div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 rounded-full bg-apollo-yellow mt-2 flex-shrink-0 shadow-sm"></div>
                 <div className="flex-1">
-                  <div className="h-4 bg-gray-200 rounded w-4/5 mb-2"></div>
-                  <div className="h-3 bg-gray-100 rounded w-full"></div>
+                  <div className="h-4 bg-apollo-yellow/10 rounded w-4/5 mb-2 border-l-2 border-apollo-yellow"></div>
+                  <div className="h-3 bg-apollo-yellow/5 rounded w-full"></div>
                 </div>
               </div>
             </div>
