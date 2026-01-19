@@ -14,8 +14,8 @@ module.exports = {
       },
       fontFamily: {
         'title': ['Montserrat', 'sans-serif'],
-        'subtitle': ['Oswald', 'sans-serif'], // Using Oswald as fallback for KnockoutCruiserweight
-        'caption': ['Butler', 'serif'],
+        'subtitle': ['Montserrat', 'sans-serif'],
+        'caption': ['Montserrat', 'sans-serif'],
       },
     },
   },

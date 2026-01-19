@@ -152,14 +152,14 @@ export default function VentureModal({ venture, onClose }: VentureModalProps) {
       <motion.div 
         className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-md p-4 md:p-8"
         onClick={handleBackdropClick}
-        style={{ top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden' }}
+        style={{ top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', paddingTop: '100px' }}
         variants={backdropVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
       >
         <motion.div 
-          className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full relative max-h-[90vh] overflow-hidden mx-auto my-auto"
+          className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full relative max-h-[calc(90vh-100px)] overflow-hidden mx-auto"
           onClick={(e) => e.stopPropagation()}
           variants={modalVariants}
           initial="hidden"
@@ -198,7 +198,7 @@ export default function VentureModal({ venture, onClose }: VentureModalProps) {
           </motion.button>
           
           {/* Scrollable content */}
-          <div className="overflow-y-auto max-h-[90vh] relative z-10">
+          <div className="overflow-y-auto max-h-[calc(90vh-100px)] relative z-10">
             <div className="p-8 md:p-10">
               {/* Header Section */}
               <motion.div 

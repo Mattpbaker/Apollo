@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       replyTo: email,
       subject: `New Contact Form Submission from ${name || email}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1e40af;">New Contact Form Submission</h2>
           <p><strong>From:</strong> ${name || 'Anonymous'} (${email})</p>
           ${message ? `<p><strong>Message:</strong></p><p>${message}</p>` : '<p>User submitted their email address.</p>'}
