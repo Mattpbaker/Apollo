@@ -208,131 +208,83 @@ export default function Targets() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {departments.map((dept, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ y: -12, scale: 1.03, rotateY: 2 }}
+              whileHover={{ scale: 1.05, y: -8 }}
               onClick={() => handleCardClick(index)}
-              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative"
+              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative"
             >
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-50/50 to-purple-50/50 pointer-events-none"></div>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className={`bg-gradient-to-br ${dept.color} p-8 relative overflow-hidden`}
-              >
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-                    backgroundSize: '24px 24px',
-                  }}></div>
-                </div>
-                {/* Decorative circles */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-xl -ml-12 -mb-12"></div>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10 flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-4">
-                    <motion.div
-                      animate={{ rotate: [0, 5, -5, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-                      className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-white/30"
-                    >
-                      <div className="text-white">
-                        {dept.icon}
-                      </div>
-                    </motion.div>
-                    <div>
-                      <h3 className="font-subtitle text-2xl md:text-3xl font-bold text-white mb-1">
-                        {dept.name}
-                      </h3>
-                      <p className="text-white/80 text-sm font-caption">
-                        Department Targets
-                      </p>
-                    </div>
-                  </div>
-                  {dept.ragRating && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2, type: "spring" }}
-                      className={`px-5 py-2.5 rounded-full font-bold text-sm shadow-xl border-2 ${
-                        dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900 border-yellow-500' :
-                        dept.ragRating === 'RED' ? 'bg-red-400 text-red-900 border-red-500' :
-                        dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900 border-amber-500' :
-                        'bg-green-400 text-green-900 border-green-500'
-                      }`}
-                    >
-                      {dept.ragRating} RAG
-                    </motion.div>
-                  )}
-                </div>
-              </motion.div>
-              <div className="p-8 bg-white">
-                <div className="space-y-4 mb-6">
-                  {dept.targets.map((target, targetIndex) => (
-                    <motion.div
-                      key={targetIndex}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: targetIndex * 0.1 }}
-                      whileHover={{ x: 4 }}
-                      className="group/item"
-                    >
-                      <div className="flex items-start gap-4 p-4 rounded-lg bg-gradient-to-r from-gray-50 to-white border-l-4 hover:shadow-md transition-all duration-300"
-                        style={{
-                          borderLeftColor: dept.color.includes('green') ? '#10B981' : 
-                                        dept.color.includes('blue') ? '#3B82F6' : 
-                                        dept.color.includes('purple') ? '#A855F7' : 
-                                        dept.color.includes('emerald') ? '#10B981' : '#3B82F6'
-                        }}
-                      >
-                        <motion.div
-                          animate={{ scale: [1, 1.15, 1] }}
-                          transition={{ duration: 2, repeat: Infinity, delay: targetIndex * 0.3 }}
-                          className={`w-5 h-5 rounded-full bg-gradient-to-br ${dept.color} mt-0.5 flex-shrink-0 shadow-md flex items-center justify-center`}
-                        >
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
-                        </motion.div>
-                        <p className="font-caption text-base text-gray-800 leading-relaxed flex-1 font-medium">
-                          {target}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                
+              {/* Default compact view */}
+              <div className="p-6 pb-4">
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="pt-6 border-t-2 border-gray-100"
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+                  className={`bg-gradient-to-br ${dept.color} rounded-xl p-4 mb-4 flex items-center justify-center shadow-md`}
                 >
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    className="flex items-center gap-2 text-sm font-semibold text-gray-600 group-hover:text-apollo-blue transition-colors cursor-pointer"
-                  >
-                    <span>Click to learn more</span>
-                    <motion.svg
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </motion.svg>
-                  </motion.div>
+                  <div className="text-white">
+                    {dept.icon}
+                  </div>
                 </motion.div>
+                
+                <h3 className="font-subtitle text-xl font-bold text-apollo-black mb-3 text-center">
+                  {dept.name}
+                </h3>
+                
+                {dept.ragRating && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className={`px-4 py-2 rounded-full font-bold text-xs shadow-lg border-2 text-center ${
+                      dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900 border-yellow-500' :
+                      dept.ragRating === 'RED' ? 'bg-red-400 text-red-900 border-red-500' :
+                      dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900 border-amber-500' :
+                      'bg-green-400 text-green-900 border-green-500'
+                    }`}
+                  >
+                    {dept.ragRating} RAG
+                  </motion.div>
+                )}
+              </div>
+
+              {/* Hover expanded view - slides down */}
+              <div className="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+                <div className={`bg-gradient-to-br ${dept.color} p-6 pt-4 text-white relative`}>
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-xl -mr-10 -mt-10"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-white/80 mb-2 uppercase tracking-wide">
+                        {dept.targets.length} {dept.targets.length === 1 ? 'Target' : 'Targets'}
+                      </p>
+                      {dept.targets[0] && (
+                        <p className="text-sm font-caption text-white/95 leading-relaxed line-clamp-2">
+                          {dept.targets[0]}
+                        </p>
+                      )}
+                    </div>
+                    <motion.div
+                      whileHover={{ x: 3 }}
+                      className="flex items-center gap-2 text-xs font-semibold text-white/90 pt-2 border-t border-white/20"
+                    >
+                      <span>Click for details</span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </motion.div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
