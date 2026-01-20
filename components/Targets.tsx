@@ -208,29 +208,30 @@ export default function Targets() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {departments.map((dept, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ scale: 1.05, y: -8 }}
+              whileHover={{ scale: 1.1, y: -12, zIndex: 10 }}
               onClick={() => handleCardClick(index)}
-              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative"
+              className="bg-white rounded-2xl overflow-visible cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative"
+              style={{ transformOrigin: 'center center' }}
             >
               {/* Default compact view */}
-              <div className="p-6 pb-4">
+              <div className="p-8 pb-6">
                 <motion.div
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-                  className={`bg-gradient-to-br ${dept.color} rounded-xl p-4 mb-4 flex items-center justify-center shadow-md`}
+                  className={`bg-gradient-to-br ${dept.color} rounded-xl p-6 mb-5 flex items-center justify-center shadow-md`}
                 >
-                  <div className="text-white">
+                  <div className="text-white scale-125">
                     {dept.icon}
                   </div>
                 </motion.div>
                 
-                <h3 className="font-subtitle text-xl font-bold text-apollo-black mb-3 text-center">
+                <h3 className="font-subtitle text-2xl font-bold text-apollo-black mb-4 text-center">
                   {dept.name}
                 </h3>
                 
@@ -240,7 +241,7 @@ export default function Targets() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, type: "spring" }}
-                    className={`px-4 py-2 rounded-full font-bold text-xs shadow-lg border-2 text-center ${
+                    className={`px-5 py-2.5 rounded-full font-bold text-sm shadow-lg border-2 text-center ${
                       dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900 border-yellow-500' :
                       dept.ragRating === 'RED' ? 'bg-red-400 text-red-900 border-red-500' :
                       dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900 border-amber-500' :
@@ -253,29 +254,29 @@ export default function Targets() {
               </div>
 
               {/* Hover expanded view - slides down */}
-              <div className="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100">
-                <div className={`bg-gradient-to-br ${dept.color} p-6 pt-4 text-white relative`}>
+              <div className="overflow-hidden max-h-0 group-hover:max-h-[400px] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+                <div className={`bg-gradient-to-br ${dept.color} p-8 pt-6 text-white relative`}>
                   {/* Decorative elements */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-xl -mr-10 -mt-10"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl -mr-12 -mt-12"></div>
                   
                   <div className="relative z-10">
-                    <div className="mb-4">
-                      <p className="text-xs font-semibold text-white/80 mb-2 uppercase tracking-wide">
+                    <div className="mb-5">
+                      <p className="text-sm font-semibold text-white/80 mb-3 uppercase tracking-wide">
                         {dept.targets.length} {dept.targets.length === 1 ? 'Target' : 'Targets'}
                       </p>
                       {dept.targets[0] && (
-                        <p className="text-sm font-caption text-white/95 leading-relaxed line-clamp-2">
+                        <p className="text-base font-caption text-white/95 leading-relaxed line-clamp-3">
                           {dept.targets[0]}
                         </p>
                       )}
                     </div>
                     <motion.div
                       whileHover={{ x: 3 }}
-                      className="flex items-center gap-2 text-xs font-semibold text-white/90 pt-2 border-t border-white/20"
+                      className="flex items-center gap-2 text-sm font-semibold text-white/90 pt-3 border-t border-white/20"
                     >
                       <span>Click for details</span>
                       <svg
-                        className="w-4 h-4"
+                        className="w-5 h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
