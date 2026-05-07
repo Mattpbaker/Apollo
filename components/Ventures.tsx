@@ -92,8 +92,10 @@ const ventures = [
     founderLinkedin: 'https://www.linkedin.com/in/logan-cornock/',
     description: 'Building a venture with UWE-backed funding behind it.',
     outcome: 'UWE funding secured',
-    image: '/ventures/inqube.jpg',
-    socialLinks: {},
+    image: '/ventures/inqube.png',
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/company/inqubeconsulting/',
+    },
   },
   {
     id: 8,
@@ -102,7 +104,7 @@ const ventures = [
     founderLinkedin: 'https://www.linkedin.com/in/alexhill01/',
     description: 'Independent consulting practice serving SMB clients.',
     outcome: 'Active client engagements through 2025/26',
-    image: '/ventures/alex-hill-consulting.jpg',
+    image: '/ventures/alex-hill-consulting.png',
     socialLinks: {},
   },
   {
@@ -110,20 +112,22 @@ const ventures = [
     name: 'Gridiron Kings',
     founder: 'Harry Buckland',
     founderLinkedin: 'https://www.linkedin.com/in/harry-buckland-83a584265/',
-    description: 'Apparel and merchandise venture.',
+    description: 'A business that aims to become the gold standard of recruitment in professional European American Football.',
     outcome: 'Trading with sponsorship pitches in flight',
-    image: '/ventures/gridiron-kings.jpg',
+    image: '/ventures/gridiron-kings.png',
     socialLinks: {},
   },
   {
     id: 10,
     name: 'Omni Solutions',
-    founder: 'Apollo Member',
-    founderLinkedin: '',
-    description: 'Multi-service venture delivering across the team.',
+    founder: 'Leo Han',
+    founderLinkedin: 'https://www.linkedin.com/in/leo-han-7974b4276/',
+    description: 'AI automation agency helping businesses streamline operations with practical automation and AI workflows.',
     outcome: 'Highest-revenue venture in the cohort',
-    image: '/ventures/omni-solutions.jpg',
-    socialLinks: {},
+    image: '/ventures/omni-solutions.png',
+    socialLinks: {
+      website: 'https://www.omni-solutions.co.uk/',
+    },
   },
 ]
 
