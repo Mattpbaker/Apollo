@@ -33,9 +33,9 @@ export default function FloatingCTA() {
           transition={{ duration: 0.3 }}
           onClick={handleClick}
           className="fixed top-1/2 right-0 z-40 -translate-y-1/2 origin-right rotate-180 [writing-mode:vertical-rl] bg-apollo-yellow text-apollo-black font-subtitle font-bold text-sm px-3 py-6 rounded-l-xl shadow-2xl hover:bg-yellow-400 transition-colors"
-          aria-label="Brief us"
+          aria-label="Get in touch"
         >
-          Brief us →
+          Get in touch →
         </motion.button>
       )}
     </AnimatePresence>

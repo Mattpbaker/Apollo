@@ -235,7 +235,7 @@ export default function Members() {
             transition={{ delay: 0.2 }}
             className="font-caption text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
           >
-            Meet the team behind every brief — a multidisciplinary mix of operators, creators, and strategists.
+            The team behind every project — a friendly mix of creators, strategists, and builders.
           </motion.p>
 
           {/* Team Stats */}

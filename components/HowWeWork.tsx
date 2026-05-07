@@ -5,13 +5,13 @@ import { motion } from 'framer-motion'
 const steps = [
   {
     n: '01',
-    title: 'Brief us',
+    title: 'Tell us about it',
     body: 'Share your project, budget, and timeline via the form or a quick call.',
   },
   {
     n: '02',
-    title: 'Working group assigned',
-    body: 'We match members with the right skills to your brief, and send back a scope and quote.',
+    title: 'We bring the right team together',
+    body: 'We match members with the right skills to your brief, and come back to you with a plan and a price.',
   },
   {
     n: '03',
@@ -35,7 +35,7 @@ export default function HowWeWork() {
             How We Work
           </span>
           <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mt-3 mb-4">
-            Three steps from brief to delivery
+            How we work with you
           </h2>
           <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
             We already operate this way internally. Engaging with us as a client uses the

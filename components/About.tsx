@@ -62,7 +62,7 @@ export default function About() {
               Vision
             </span>
             <p className="font-subtitle text-lg text-gray-800 mt-2 leading-relaxed">
-              To be a supportive team of outstanding entrepreneurs that ships meaningful work.
+              To be a supportive team of outstanding entrepreneurs doing meaningful work.
             </p>
           </div>
         </motion.div>
@@ -107,8 +107,8 @@ export default function About() {
             Team Leads organise strategy and delegate to working groups. Members opt in to
             the working groups that match their skills and interests, picking up tasks that
             develop their expertise. The same working-group structure delivers our internal
-            ventures and our client projects — when you brief us, this is the team you
-            actually engage with.
+            ventures and our client projects — when you get in touch, this is the team
+            you&apos;d actually work with.
           </p>
         </motion.div>
       </div>

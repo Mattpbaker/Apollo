@@ -42,7 +42,7 @@ export default function MidPageCTA() {
           onClick={handleScroll}
           className="px-8 py-4 bg-apollo-black text-white font-subtitle font-bold text-lg rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 whitespace-nowrap"
         >
-          Brief us →
+          Get in touch →
         </button>
       </motion.div>
     </section>

@@ -12,7 +12,7 @@ interface ServiceTrack {
 const tracks: ServiceTrack[] = [
   {
     name: 'Marketing & Content',
-    outcome: 'Strategy, social media, copy, branding for businesses that need attention.',
+    outcome: 'Strategy, social media, copy, branding for businesses ready to grow.',
     skillTags: ['Marketing', 'Social Media', 'Copy', 'Branding'],
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ const tracks: ServiceTrack[] = [
   },
   {
     name: 'Video & Photography',
-    outcome: 'Produced video, photography, social-first creative.',
+    outcome: 'Produced video, photography, creative content for social.',
     skillTags: ['Video', 'Videography', 'Video Direction', 'Photography'],
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ const tracks: ServiceTrack[] = [
   },
   {
     name: 'Consultancy & BD',
-    outcome: 'Market research, customer acquisition strategy, go-to-market support.',
+    outcome: 'Market research, customer acquisition strategy, support for early-stage businesses.',
     skillTags: ['Consulting', 'Strategy', 'BD', 'Research'],
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@ export default function Services() {
             Services we can deliver
           </h2>
           <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
-            Six tracks. Multidisciplinary by default — most briefs combine more than one.
+            Six areas where the team has skills. Most projects combine more than one.
           </p>
         </motion.div>
 
@@ -145,7 +145,7 @@ export default function Services() {
                 onClick={() => handleScrollTo('cta')}
                 className="inline-flex items-center gap-2 text-apollo-blue font-subtitle font-semibold text-sm group-hover:gap-3 transition-all"
               >
-                Brief us on this
+                Get in touch
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

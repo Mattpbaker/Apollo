@@ -43,7 +43,7 @@ export default function CaseStudies() {
             Client work we've delivered
           </h2>
           <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
-            Real organisations that have engaged Apollo for project delivery.
+            Some of the organisations we&apos;ve worked with.
           </p>
         </motion.div>
 

@@ -355,10 +355,10 @@ export default function CTA() {
                 No form, no fields. Drop us a line and we&apos;ll come back within 48 hours.
               </p>
               <a
-                href="mailto:hello@apollo-uwe.com"
+                href="mailto:teamapollouwe@gmail.com"
                 className="inline-flex items-center gap-2 font-subtitle font-semibold text-apollo-blue hover:underline"
               >
-                hello@apollo-uwe.com
+                teamapollouwe@gmail.com
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

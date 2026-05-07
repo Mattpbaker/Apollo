@@ -208,10 +208,10 @@ export default function Ventures() {
           className="text-center mb-16"
         >
           <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-4">
-            Our ventures = our proof
+            Our ventures, our proof
           </h2>
           <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
-            Each member runs or builds a real business. Here&apos;s what we&apos;ve shipped.
+            Each member runs or builds a real business. Here&apos;s what we&apos;ve built.
           </p>
         </motion.div>
         <motion.div
@@ -329,7 +329,7 @@ export default function Ventures() {
           transition={{ duration: 0.6 }}
           className="font-caption text-center text-lg text-gray-700 mt-12 max-w-3xl mx-auto"
         >
-          This is the same operator mindset we bring to your project.
+          We bring that same hands-on approach to every client project.
         </motion.p>
 
         {selectedVenture && (

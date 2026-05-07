@@ -61,7 +61,7 @@ export default function Hero() {
         >
           We're student entrepreneurs running real ventures.
           <br />
-          <span className="text-apollo-yellow">Now we're taking on yours.</span>
+          <span className="text-apollo-yellow">And we'd love to help with yours.</span>
         </motion.h1>
 
         <motion.p
@@ -70,8 +70,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="font-caption text-lg md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10"
         >
-          A team of 19 UWE entrepreneurs running 11 live ventures. We bring that operator
-          mindset to client projects across marketing, content, web, events, and consultancy.
+          A team of 19 UWE entrepreneurs running 11 live ventures. We bring that same
+          hands-on experience to client projects across marketing, content, web, events, and consultancy.
         </motion.p>
 
         <motion.div
@@ -84,13 +84,13 @@ export default function Hero() {
             onClick={() => handleScrollTo('cta')}
             className="px-8 py-4 bg-apollo-yellow text-apollo-black font-subtitle font-bold text-lg rounded-full shadow-2xl hover:scale-105 hover:shadow-yellow-500/40 transition-all duration-300"
           >
-            Brief us on a project
+            Get in touch
           </button>
           <button
             onClick={() => handleScrollTo('ventures')}
             className="px-8 py-4 bg-transparent text-white border-2 border-white/60 font-subtitle font-bold text-lg rounded-full hover:bg-white hover:text-apollo-blue transition-all duration-300"
           >
-            See our ventures
+            See our work
           </button>
         </motion.div>
       </div>
