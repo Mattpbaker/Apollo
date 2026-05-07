@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ourtor",
+    "client": "OurTor",
+    "type": "Client Project",
+    "summary": "Strategic project delivered as part of Apollo's Team Entrepreneurship engagement.",
+    "deliverables": [],
+    "outcome": "",
+    "members": []
+  },
+  {
+    "id": "kasa-tech",
+    "client": "KASA Tech",
+    "type": "Client Project",
+    "summary": "Strategic project delivered as part of Apollo's Team Entrepreneurship engagement.",
+    "deliverables": [],
+    "outcome": "",
+    "members": []
+  },
+  {
+    "id": "foundercrushai",
+    "client": "FounderCrushAI",
+    "type": "Client Project",
+    "summary": "Strategic project delivered as part of Apollo's Team Entrepreneurship engagement.",
+    "deliverables": [],
+    "outcome": "",
+    "members": []
+  },
+  {
+    "id": "solutions-for-the-planet",
+    "client": "Solutions for the Planet",
+    "type": "Client Project",
+    "summary": "Strategic project delivered as part of Apollo's Team Entrepreneurship engagement.",
+    "deliverables": [],
+    "outcome": "",
+    "members": []
+  }
+]

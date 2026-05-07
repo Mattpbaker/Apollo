@@ -11,6 +11,7 @@ const ventures = [
     founder: 'David Cruz',
     founderLinkedin: 'https://www.linkedin.com/in/david-cruz-186415294/',
     description: 'COP IT🛍️ LOVE IT💕 FLIP IT♻️ - A sustainable fashion venture focused on second-hand style.',
+    outcome: 'Sustainable fashion, six months active trading',
     image: '/ventures/flipped-it.jpg',
     socialLinks: {
       linktree: 'https://linktr.ee/flippedit',
@@ -22,6 +23,7 @@ const ventures = [
     founder: 'Shaan & Sam',
     founderLinkedin: ['https://www.linkedin.com/in/shaan-sisodia-a10ba0194/', 'https://www.linkedin.com/in/sam-geracitano-05a758256/'],
     description: 'Delivering exceptional results through strategic partnerships and creative solutions.',
+    outcome: 'Two-founder creative agency',
     image: '/ventures/siso-agency.jpg',
     socialLinks: {
       linkedin: 'https://linkedin.com/company/siso-agency',
@@ -34,6 +36,7 @@ const ventures = [
     founder: 'Ben John',
     founderLinkedin: 'https://www.linkedin.com/in/benjamin-john-577607293/',
     description: 'Providing top-quality cleaning services with a focus on excellence and customer satisfaction.',
+    outcome: 'Live customer base in Bristol',
     image: '/ventures/cleanest-cleaners.jpg',
     socialLinks: {
       website: 'https://clean-nest-cleaners.vercel.app/',
@@ -45,6 +48,7 @@ const ventures = [
     founder: 'Grace Docherty',
     founderLinkedin: 'https://www.linkedin.com/in/grace-docherty1000/',
     description: 'Social media management, strategy and content creation. Let\'s make an impact.',
+    outcome: 'Managing 18+ named client accounts',
     image: '/ventures/blufin-media.jpg',
     socialLinks: {
       website: 'https://www.blufinmedia.org/',
@@ -57,6 +61,7 @@ const ventures = [
     founder: 'Alex Keeler',
     founderLinkedin: 'https://www.linkedin.com/in/alex-keeler-872653291/',
     description: 'Gaming content creator producing entertaining streams, highlights, and community-driven content across multiple platforms. Building a passionate gaming community through engaging gameplay and interactive experiences.',
+    outcome: 'Multi-platform gaming creator',
     image: '/ventures/alexcount-x.png',
     socialLinks: {
       youtube: 'https://www.youtube.com/channel/UCykysNbbDz8Gv2dAj_dL92g',
@@ -73,11 +78,52 @@ const ventures = [
     founder: 'George Lewis',
     founderLinkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/',
     description: 'Empowering journeys and experiences that create lasting impact and meaningful connections.',
+    outcome: 'Coaching practice with named external clients',
     image: '/ventures/journey-with-george.jpg',
     socialLinks: {
       instagram: 'https://www.instagram.com/_journeywithgeorge/',
       tiktok: 'https://www.tiktok.com/@journey_with_george',
     },
+  },
+  {
+    id: 7,
+    name: 'INQUBE',
+    founder: 'Logan Cornock',
+    founderLinkedin: 'https://www.linkedin.com/in/logan-cornock/',
+    description: 'Building a venture with UWE-backed funding behind it.',
+    outcome: 'UWE funding secured',
+    image: '/ventures/inqube.jpg',
+    socialLinks: {},
+  },
+  {
+    id: 8,
+    name: 'Alex Hill Consulting',
+    founder: 'Alex Hill',
+    founderLinkedin: 'https://www.linkedin.com/in/alexhill01/',
+    description: 'Independent consulting practice serving SMB clients.',
+    outcome: 'Active client engagements through 2025/26',
+    image: '/ventures/alex-hill-consulting.jpg',
+    socialLinks: {},
+  },
+  {
+    id: 9,
+    name: 'Gridiron Kings',
+    founder: 'Harry Buckland',
+    founderLinkedin: 'https://www.linkedin.com/in/harry-buckland-83a584265/',
+    description: 'Apparel and merchandise venture.',
+    outcome: 'Trading with sponsorship pitches in flight',
+    image: '/ventures/gridiron-kings.jpg',
+    socialLinks: {},
+  },
+  {
+    id: 10,
+    name: 'Omni Solutions',
+    founder: 'Apollo Member',
+    founderLinkedin: '',
+    description: 'Multi-service venture delivering across the team.',
+    outcome: 'Highest-revenue venture in the cohort',
+    image: '/ventures/omni-solutions.jpg',
+    socialLinks: {},
   },
 ]
 
@@ -162,10 +208,10 @@ export default function Ventures() {
           className="text-center mb-16"
         >
           <h2 className="font-title text-4xl md:text-5xl font-bold gradient-text mb-4">
-            Apollo's Ventures + Projects
+            Our ventures, our proof
           </h2>
           <p className="font-caption text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover the innovative ventures and projects driving Apollo's entrepreneurial spirit
+            Each member runs or builds a real business. Here&apos;s what we&apos;ve built.
           </p>
         </motion.div>
         <motion.div
@@ -243,7 +289,16 @@ export default function Ventures() {
                   <p className="font-caption text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
                     {venture.description}
                   </p>
-                  
+
+                  {venture.outcome && (
+                    <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-full">
+                      <svg className="w-3.5 h-3.5 text-apollo-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="font-subtitle text-xs font-semibold text-apollo-blue">{venture.outcome}</span>
+                    </div>
+                  )}
+
                   {/* CTA */}
                   <motion.div
                     whileHover={{ x: 5 }}
@@ -266,7 +321,17 @@ export default function Ventures() {
             )
           })}
         </motion.div>
-        
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-caption text-center text-lg text-gray-700 mt-12 max-w-3xl mx-auto"
+        >
+          We bring that same hands-on approach to every client project.
+        </motion.p>
+
         {selectedVenture && (
           <VentureModal
             venture={ventures.find(v => v.id === selectedVenture)!}
