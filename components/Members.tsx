@@ -11,6 +11,7 @@ interface TeamMember {
     title: string
     responsibility: string
   }>
+  skills?: string[]
   linkedin: string
   image: string
 }
@@ -36,15 +37,16 @@ const teamMembers: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/james-davis-61a127333/', 
     image: '/members/james-davies.jpg' 
   },
-  { name: 'George Lewis', role: 'Accountability Lead', linkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/', image: '/members/george-lewis.jpg' },
-  { 
-    name: 'Matt Baker', 
-    role: 'Member', 
+  { name: 'George Lewis', role: 'Accountability Lead', skills: ['Coaching', 'Accountability'], linkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/', image: '/members/george-lewis.jpg' },
+  {
+    name: 'Matt Baker',
+    role: 'Member',
     roles: [
       { title: 'Website + Social Media', responsibility: 'Use ML feedback to improve marketing links + website' }
     ],
-    linkedin: 'https://www.linkedin.com/in/matt-baker-655a40336/', 
-    image: '/members/matt-baker.jpg' 
+    skills: ['Web', 'Social Media'],
+    linkedin: 'https://www.linkedin.com/in/matt-baker-655a40336/',
+    image: '/members/matt-baker.jpg'
   },
   { 
     name: 'Ares Barbulescu', 
@@ -85,23 +87,25 @@ const teamMembers: TeamMember[] = [
     image: '/members/george-doyle.jpg' 
   },
   { name: 'Sam Gerancantino', role: 'Member', linkedin: 'https://www.linkedin.com/in/sam-geracitano-05a758256/', image: '/members/sam-gerancantino.jpg' },
-  { 
-    name: 'Alex Hill', 
-    role: 'Member', 
+  {
+    name: 'Alex Hill',
+    role: 'Member',
     roles: [
       { title: 'Videographer', responsibility: 'Capture and produce video content for Apollo' }
     ],
-    linkedin: 'https://www.linkedin.com/in/alexhill01/', 
-    image: '/members/alex-hill.jpg' 
+    skills: ['Videography', 'Consulting'],
+    linkedin: 'https://www.linkedin.com/in/alexhill01/',
+    image: '/members/alex-hill.jpg'
   },
-  { 
-    name: 'Grace Docherty', 
-    role: 'Member', 
+  {
+    name: 'Grace Docherty',
+    role: 'Member',
     roles: [
       { title: 'Video Director', responsibility: 'Direct and oversee video production for Apollo' }
     ],
-    linkedin: 'https://www.linkedin.com/in/grace-docherty1000/', 
-    image: '/members/grace-docherty.jpg' 
+    skills: ['Video Direction', 'Marketing'],
+    linkedin: 'https://www.linkedin.com/in/grace-docherty1000/',
+    image: '/members/grace-docherty.jpg'
   },
   { name: 'Leo Han', role: 'Member', linkedin: 'https://www.linkedin.com/in/leo-han-7974b4276/', image: '/members/leo-han.jpg' },
   { name: 'SISO', role: 'Member', linkedin: 'https://www.linkedin.com/in/shaan-sisodia-a10ba0194/', image: '/members/siso.jpg' },
@@ -167,12 +171,16 @@ export default function Members() {
 
   const membersWithRoles = sortedMembers.filter(m => m.roles && m.roles.length > 0).length
   const totalMembers = sortedMembers.length
-  
+  const liveVentures = 11
+  const skillsCovered = new Set(
+    sortedMembers.flatMap((m) => m.skills ?? [])
+  ).size
+
   // Team Leads who should have the blue badge
   const teamLeadNames = ['Jaymie Penny', 'James Davies', 'George Lewis']
 
   return (
-    <section id="members" className="py-32 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+    <section id="team" className="py-32 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
       {/* Enhanced floating particles effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
@@ -218,7 +226,7 @@ export default function Members() {
             viewport={{ once: true }}
             className="font-title text-5xl md:text-6xl font-bold gradient-text mb-6"
           >
-            Our Team
+            Who you'd work with
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -227,7 +235,7 @@ export default function Members() {
             transition={{ delay: 0.2 }}
             className="font-caption text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
           >
-            Meet the talented individuals driving Apollo's success
+            Meet the team behind every brief — a multidisciplinary mix of operators, creators, and strategists.
           </motion.p>
 
           {/* Team Stats */}
@@ -248,7 +256,7 @@ export default function Members() {
               >
                 {totalMembers}
               </motion.div>
-              <p className="font-caption text-sm text-gray-600">Team Members</p>
+              <p className="font-caption text-sm text-gray-600">Members</p>
             </div>
             <div className="w-px h-12 bg-gray-300"></div>
             <div className="text-center">
@@ -259,9 +267,9 @@ export default function Members() {
                 transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
                 className="text-4xl md:text-5xl font-bold text-purple-600 mb-2"
               >
-                {membersWithRoles}
+                {liveVentures}
               </motion.div>
-              <p className="font-caption text-sm text-gray-600">Active Roles</p>
+              <p className="font-caption text-sm text-gray-600">Live Ventures</p>
             </div>
             <div className="w-px h-12 bg-gray-300"></div>
             <div className="text-center">
@@ -272,9 +280,9 @@ export default function Members() {
                 transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
                 className="text-4xl md:text-5xl font-bold text-green-600 mb-2"
               >
-                {sortedMembers.filter(m => m.role === 'Team Lead' || m.role === 'Team Coach' || m.role.includes('Lead')).length}
+                {skillsCovered}
               </motion.div>
-              <p className="font-caption text-sm text-gray-600">Leaders</p>
+              <p className="font-caption text-sm text-gray-600">Skills covered</p>
             </div>
           </motion.div>
         </motion.div>
@@ -354,6 +362,18 @@ export default function Members() {
                     </svg>
                     LinkedIn
                   </motion.a>
+                </div>
+              )}
+              {member.skills && member.skills.length > 0 && (
+                <div className="flex flex-wrap justify-center gap-1.5 mb-3 relative z-10">
+                  {member.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-[10px] font-subtitle font-semibold uppercase tracking-wide bg-blue-50 text-apollo-blue px-2 py-1 rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               )}
               {member.roles && member.roles.length > 0 && (
