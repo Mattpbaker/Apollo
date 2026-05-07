@@ -19,7 +19,7 @@ const departments = [
     color: 'from-green-500 to-green-600',
     ragRating: 'GOLD',
     update: {
-      status: 'Apollo\'s financial performance is currently ahead of target, with revenue of £25,925 and a profit margin of 58%, driven through successful ventures.',
+      status: "Apollo's financial performance is significantly ahead of target. Cumulative team revenue stands at £77,757 (155% of the £50,000 original target) with a 76% gross margin and 35% net margin, driven through successful ventures.",
       keyRisks: [
         'Revenue generation has been disproportionately driven by a small number of individuals.',
         'Financial checkpoints were previously too infrequent, which risked delayed identification of performance issues.',
