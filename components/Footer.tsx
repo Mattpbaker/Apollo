@@ -114,6 +114,12 @@ export default function Footer() {
             <p className="font-caption text-sm text-gray-500 text-center md:text-left">
               © {currentYear} Apollo. All rights reserved.
             </p>
+            <a
+              href="/assessors"
+              className="font-caption text-xs text-gray-500 hover:text-apollo-blue transition-colors"
+            >
+              For mentors & assessors →
+            </a>
             <p className="font-caption text-sm text-gray-500 text-center md:text-right">
               Built with passion by Matt Baker
             </p>
