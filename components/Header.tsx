@@ -4,17 +4,15 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
-  { id: 'mission', label: 'Mission' },
-  { id: 'targets', label: 'Targets' },
-  { id: 'roles', label: 'Roles' },
-  { id: 'members', label: 'Members' },
+  { id: 'services', label: 'Services' },
   { id: 'ventures', label: 'Ventures' },
-  { id: 'workspace', label: 'Workspace' },
+  { id: 'how-we-work', label: 'How We Work' },
+  { id: 'team', label: 'Team' },
   { id: 'cta', label: 'Contact' },
 ]
 
 export default function Header() {
-  const [activeSection, setActiveSection] = useState('mission')
+  const [activeSection, setActiveSection] = useState('services')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -74,7 +72,7 @@ export default function Header() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => handleNavClick('mission')}
+            onClick={() => handleNavClick('services')}
           >
             <img
               src="/apollo-logo.svg"
