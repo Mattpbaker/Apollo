@@ -216,11 +216,11 @@ export default function Targets() {
               variants={cardVariants}
               whileHover={{ scale: 1.1, y: -12, zIndex: 10 }}
               onClick={() => handleCardClick(index)}
-              className="bg-white rounded-2xl overflow-visible cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative"
+              className="bg-white rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100 relative flex flex-col min-h-[280px]"
               style={{ transformOrigin: 'center center' }}
             >
               {/* Default compact view */}
-              <div className="p-8 pb-6">
+              <div className="p-8 pb-6 flex flex-col flex-grow">
                 <motion.div
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
@@ -235,13 +235,17 @@ export default function Targets() {
                   {dept.name}
                 </h3>
                 
+                {/* Spacer to push RAG badge to bottom */}
+                <div className="flex-grow"></div>
+                
+                {/* RAG Rating - always at bottom */}
                 {dept.ragRating && (
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, type: "spring" }}
-                    className={`px-5 py-2.5 rounded-full font-bold text-sm shadow-lg border-2 text-center ${
+                    className={`px-5 py-2.5 rounded-full font-bold text-sm shadow-lg border-2 text-center mt-auto ${
                       dept.ragRating === 'GOLD' ? 'bg-yellow-400 text-yellow-900 border-yellow-500' :
                       dept.ragRating === 'RED' ? 'bg-red-400 text-red-900 border-red-500' :
                       dept.ragRating === 'AMBER' ? 'bg-amber-400 text-amber-900 border-amber-500' :
@@ -253,8 +257,8 @@ export default function Targets() {
                 )}
               </div>
 
-              {/* Hover expanded view - slides down */}
-              <div className="overflow-hidden max-h-0 group-hover:max-h-[400px] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+              {/* Hover expanded view - slides down, only shows on THIS card's hover */}
+              <div className="overflow-hidden max-h-0 group-hover:max-h-[400px] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
                 <div className={`bg-gradient-to-br ${dept.color} p-8 pt-6 text-white relative`}>
                   {/* Decorative elements */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl -mr-12 -mt-12"></div>
