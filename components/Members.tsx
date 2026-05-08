@@ -27,22 +27,21 @@ const teamMembers: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/jaymie-penny-686685202/', 
     image: '/members/jaymie-pennie.jpg' 
   },
-  { 
-    name: 'James Davies', 
-    role: 'Academic Lead', 
+  {
+    name: 'James Davies',
+    role: 'Academic Lead',
     roles: [
-      { title: 'Academic Lead', responsibility: 'Lead Review WG' },
-      { title: 'Tracker Manager', responsibility: 'Ensure all tracking systems are up to date for December + Make KPI Graphs' }
+      { title: 'Academic Lead', responsibility: 'Lead Review WG' }
     ],
-    linkedin: 'https://www.linkedin.com/in/james-davis-61a127333/', 
-    image: '/members/james-davies.jpg' 
+    linkedin: 'https://www.linkedin.com/in/james-davis-61a127333/',
+    image: '/members/james-davies.jpg'
   },
-  { name: 'George Lewis', role: 'Accountability Lead', skills: ['Coaching', 'Accountability'], linkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/', image: '/members/george-lewis.jpg' },
+  { name: 'George Lewis', role: 'Team Photographer', skills: ['Photography'], linkedin: 'https://www.linkedin.com/in/george-lewis-98a2b62a5/', image: '/members/george-lewis.jpg' },
   {
     name: 'Matt Baker',
     role: 'Member',
     roles: [
-      { title: 'Website + Social Media', responsibility: 'Use ML feedback to improve marketing links + website' }
+      { title: 'Website and Marketing Lead', responsibility: 'Use ML feedback to improve marketing links + website' }
     ],
     skills: ['Web', 'Social Media'],
     linkedin: 'https://www.linkedin.com/in/matt-baker-655a40336/',
@@ -52,12 +51,12 @@ const teamMembers: TeamMember[] = [
     name: 'Ares Barbulescu', 
     role: 'Member', 
     roles: [
-      { title: 'Policy + Registration Form Manager', responsibility: 'Update all policies and reg form and ensure they are signed' }
+      { title: 'Policy Manager', responsibility: 'Update all policies and reg form and ensure they are signed' }
     ],
     linkedin: 'https://www.linkedin.com/in/ares-barbulescu-493879299/', 
     image: '/members/ares-barbulescu.jpg' 
   },
-  { name: 'Charlie Hensman', role: 'Member', linkedin: 'https://www.linkedin.com/in/charlie-hensman-981852291/', image: '/members/charlie-hensman.jpg' },
+  { name: 'Charlie Hensman', role: 'Activity Log Manager', linkedin: 'https://www.linkedin.com/in/charlie-hensman-981852291/', image: '/members/charlie-hensman.jpg' },
   { 
     name: 'Logan Cornock', 
     role: 'Member', 
@@ -71,17 +70,17 @@ const teamMembers: TeamMember[] = [
     name: 'Ben John', 
     role: 'Member', 
     roles: [
-      { title: 'Mark Variation Person', responsibility: 'Keep the whole group on accountable to deadlines - make redistribution policy based on traffic light system speak to ben' }
+      { title: 'Mark Variation Lead', responsibility: 'Keep the whole group on accountable to deadlines - make redistribution policy based on traffic light system speak to ben' }
     ],
     linkedin: 'https://www.linkedin.com/in/benjamin-john-577607293/', 
     image: '/members/ben-john.jpg' 
   },
-  { name: 'Freddie Newman', role: 'Member', linkedin: 'https://www.linkedin.com/in/frednewman/', image: '/members/freddie-newman.jpg' },
+  { name: 'Freddie Newman', role: 'Competency Clinic Manager', linkedin: 'https://www.linkedin.com/in/frednewman/', image: '/members/freddie-newman.jpg' },
   { 
     name: 'George Doyle', 
     role: 'Member', 
     roles: [
-      { title: 'TS Coordinator', responsibility: 'Ensure all notes from training sessions are on teams and accessible to ML' }
+      { title: 'Training Session Co-ordinator', responsibility: 'Ensure all notes from training sessions are on teams and accessible to ML' }
     ],
     linkedin: 'https://www.linkedin.com/in/george-doyle-827688346/', 
     image: '/members/george-doyle.jpg' 
@@ -89,11 +88,11 @@ const teamMembers: TeamMember[] = [
   { name: 'Sam Gerancantino', role: 'Member', linkedin: 'https://www.linkedin.com/in/sam-geracitano-05a758256/', image: '/members/sam-gerancantino.jpg' },
   {
     name: 'Alex Hill',
-    role: 'Member',
+    role: 'Tracking System Manager',
     roles: [
-      { title: 'Videographer', responsibility: 'Capture and produce video content for Apollo' }
+      { title: 'Tracking System Manager', responsibility: 'Ensure all tracking systems are up to date and make KPI graphs' }
     ],
-    skills: ['Videography', 'Consulting'],
+    skills: ['Tracking', 'Data'],
     linkedin: 'https://www.linkedin.com/in/alexhill01/',
     image: '/members/alex-hill.jpg'
   },
@@ -107,15 +106,15 @@ const teamMembers: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/grace-docherty1000/',
     image: '/members/grace-docherty.jpg'
   },
-  { name: 'Leo Han', role: 'Member', linkedin: 'https://www.linkedin.com/in/leo-han-7974b4276/', image: '/members/leo-han.jpg' },
+  { name: 'Leo Han', role: 'Venture Tracker', linkedin: 'https://www.linkedin.com/in/leo-han-7974b4276/', image: '/members/leo-han.jpg' },
   { name: 'SISO', role: 'Member', linkedin: 'https://www.linkedin.com/in/shaan-sisodia-a10ba0194/', image: '/members/siso.jpg' },
   { name: 'David Cruz', role: 'Member', linkedin: 'https://www.linkedin.com/in/david-cruz-186415294/', image: '/members/david-cruz.jpg' },
-  { name: 'Harry Buckland', role: 'Member', linkedin: 'https://www.linkedin.com/in/harry-buckland-83a584265/', image: '/members/harry-buckland.jpg' },
+  { name: 'Harry Buckland', role: 'Super Sub', linkedin: 'https://www.linkedin.com/in/harry-buckland-83a584265/', image: '/members/harry-buckland.jpg' },
   { 
     name: 'Alex Keeler', 
     role: 'Member', 
     roles: [
-      { title: 'Proof Reader', responsibility: 'Proof read report and Pres' }
+      { title: 'Video Editor', responsibility: 'Edit and produce video content for Apollo' }
     ],
     linkedin: 'https://www.linkedin.com/in/alex-keeler-872653291/', 
     image: '/members/alex-keeler.jpg' 
@@ -177,7 +176,7 @@ export default function Members() {
   ).size
 
   // Team Leads who should have the blue badge
-  const teamLeadNames = ['Jaymie Penny', 'James Davies', 'George Lewis']
+  const teamLeadNames = ['Jaymie Penny', 'James Davies']
 
   return (
     <section id="team" className="py-32 px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
